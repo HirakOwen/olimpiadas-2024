@@ -1,7 +1,6 @@
 /* Header CSS */
 header {
-  width: 100%;
-  max-width: 100%;
+  width: auto;
   height: 115px;
   background: black;
   z-index: 10;
