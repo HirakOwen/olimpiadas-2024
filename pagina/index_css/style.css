@@ -62,6 +62,9 @@ body {
     font-size: 20px;
     font-weight: bold;
 }
+
+/*Muy Importante en el RESPONSIVE NO TOCAR*/
+
 .row {
     --bs-gutter-x: 0 !important;
 }
