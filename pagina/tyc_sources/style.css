@@ -1,0 +1,119 @@
+/*Footer*/
+
+footer {
+    background: black;
+}
+.footer-superior {
+    background: #C2C2C2;
+}
+.footer-superior img {
+    width: 25px;
+}
+.footer-superior ul {
+    list-style: none;
+}
+.footer-superior a {
+    color: black;
+    text-decoration: none;
+}
+.footer-superior a:hover {
+    text-decoration: underline;
+}
+.footer-inferior {
+    background: #444444;
+}
+.footer-inferior p, .footer-inferior b {
+    font-size: 15px;
+}
+
+/*Tipografía*/
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: black;
+}
+
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: black;
+
+
+  }
+
+   /*Responsive del titulo*/
+
+@media (max-width: 576px) {
+.titulo{
+	font-size: 1.8em;
+}
+
+}
+
+@media (min-width: 576px) {
+.titulo{
+	font-size: 2.4em;
+}
+
+}
+
+@media (min-width: 756px) {
+.titulo{
+	font-size: 3em;
+
+}
+
+}
+
+
+/*Fecha*/
+
+.fecha{
+	color:#777;
+}
+
+@media (max-width: 576px) {
+.fecha{
+	font-size: 1em;
+}
+
+}
+
+@media (min-width: 576px) {
+.fecha{
+	font-size: 1.2em;
+}
+
+/*subtitulo*/
+
+
+@media (max-width: 576px) {
+.subtitulo{
+	font-size: 1.2em;
+}
+
+}
+
+@media (min-width: 576px) {
+.subtitulo{
+	font-size: 1.5em;
+}
+
+
+/*enunciado*/
+
+
+@media (max-width: 576px) {
+.enunciado{
+	font-size: 1.4em;
+}
+
+}
+
+@media (min-width: 576px) {
+.enunciado{
+	font-size: 1.3em;
+}

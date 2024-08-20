@@ -1,0 +1,182 @@
+
+
+/*recuadros y containers de las faqs*/
+
+.row{
+	--bs-gutter-x: 0 !important;
+
+}
+.containercolumna{
+	margin-right: 30px !important;
+}
+
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .faq-item {
+      margin-bottom: 10px;
+    }
+
+    .faq-header {
+    	max-height: 50px;
+      padding: 20px;
+      color: black;
+      border-radius: 5px;
+      font-family: inter;
+      margin-top: 20px;
+      margin-bottom: 20px;
+
+      border:1px solid #000;
+      display: flex;
+      align-items: center;
+      transition: background-color 0.3s ease;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+
+    .faq-header span.symbol {
+      margin-right: 10px; 
+      font-size: 20px;
+    }
+
+    .faq-body {
+      display: none;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      background-color: #E8E6E6;
+
+
+    }
+
+
+   /*Responsive del titulo*/
+
+@media (max-width: 576px) {
+.titulo{
+	font-size: 2.2em;
+}
+
+}
+
+@media (min-width: 576px) {
+.titulo{
+	font-size: 2.7em;
+}
+
+}
+
+@media (min-width: 756px) {
+.titulo{
+	font-size: 3.3em;
+
+}
+
+}
+
+
+
+.sombra{
+	box-shadow: 0px 8px 6px 0px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+
+/*Responsive del Icono del titulo*/
+
+@media (max-width: 576px) {
+    .icono {
+        flex: 0 0 auto;
+        width: 24%;
+
+    }
+
+}
+
+@media (min-width: 576px) {
+    .icono {
+        flex: 0 0 auto;
+        width: 22%;
+
+
+}}
+
+@media (min-width: 756px) {
+    .icono {
+        flex: 0 0 auto;
+        width: 18%;
+
+}
+}
+
+@media (min-width: 992px) {
+    .icono {
+        flex: 0 0 auto;
+        width: 10%;
+        max-width: 18%;
+
+}
+}
+
+/*Linea gris de separación que esta bajo las preguntas*/
+
+.linea{
+	height: 1px;
+	background-color: #E8E6E6;
+}
+
+/*Tipografía*/
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: black;
+}
+
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: black;
+
+
+  }
+
+.inter-italic{
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: italic;
+}
+
+
+/* Footer */
+
+footer {
+    background: black;
+}
+.footer-superior {
+    background: #C2C2C2;
+}
+.footer-superior img {
+    width: 25px;
+}
+.footer-superior ul {
+    list-style: none;
+}
+.footer-superior a {
+    color: black;
+    text-decoration: none;
+}
+.footer-superior a:hover {
+    text-decoration: underline;
+}
+.footer-inferior {
+    background: #444444;
+}
+.footer-inferior p, .footer-inferior b {
+    font-size: 15px;
+}
