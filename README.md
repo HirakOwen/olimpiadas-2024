@@ -11,7 +11,6 @@
 
 ### Restante:
 - Subpaginas de productos
-- Contacto
 ### Necesita DB:
 - Pagina Admin
 - Pedidos
