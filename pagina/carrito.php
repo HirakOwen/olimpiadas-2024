@@ -1,37 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="index_css/header.css" />
-    <link rel="stylesheet" href="carrito.css" />
-    <style>
+
+   <?php include "./components/header.html"?>
+
+  <link rel="stylesheet" href="./assets/carro/carrito.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <style>
       p {
         margin: 0 !important;
       }
     </style>
-    <title>Carrito de Compras</title>
-  </head>
-  <body>
     <main>
       <section class="cart-header">
-        <img src="./titulocarrito.png" alt="Título Carrito" />
+        <img src="./assets/carro/titulocarrito.png" alt="Título Carrito" />
       </section>
       <section class="cart-body">
         <div class="cart-products-header">
@@ -39,7 +19,7 @@
           <div class="cart-products-list">
             <div class="cart-item">
               <div class="cart-item-remove">
-                <img src="./cruzlol.png" alt="Eliminar Producto" />
+                <img src="./assets/carro/cruzlol.png" alt="Eliminar Producto" />
               </div>
               <p class="cart-item-name">Gorra SKIBIDI</p>
               <div class="cart-item-quantity">
@@ -55,7 +35,7 @@
             </div>
             <div class="cart-item">
               <div class="cart-item-remove">
-                <img src="./cruzlol.png" alt="Eliminar Producto" />
+                <img src="./assets/carro/cruzlol.png" alt="Eliminar Producto" />
               </div>
               <p class="cart-item-name">Gorra SKIBIDI</p>
               <div class="cart-item-quantity">
@@ -71,7 +51,7 @@
             </div>
             <div class="cart-item">
               <div class="cart-item-remove">
-                <img src="./cruzlol.png" alt="Eliminar Producto" />
+                <img src="./assets/carro/cruzlol.png" alt="Eliminar Producto" />
               </div>
               <p class="cart-item-name">Gorra SKIBIDI</p>
               <div class="cart-item-quantity">
@@ -100,7 +80,7 @@
             <p><span>Total a pagar: </span> <span> $34.800</span></p>
             <button>
               <p>Proceder con la compra</p>
-              <div class="icon-button"><img src="./pagar.png" /></div>
+              <div class="icon-button"><img src="./assets/carro/pagar.png" /></div>
             </button>
           </div>
         </div>
@@ -114,6 +94,18 @@
         input.addEventListener("input", function (event) {
           this.value = this.value.replace(/\D/g, "");
         });
-      });
+      });   
+        function adjustMainMargin() {
+            const headerHeight = document.querySelector('header').offsetHeight;
+            document.querySelector('main').style.paddingTop = headerHeight + 'px';
+        }
+
+        adjustMainMargin();
+
+  
+        const resizeObserver = new ResizeObserver(adjustMainMargin);
+
+    
+        resizeObserver.observe(header);
   </script>
 </html>
