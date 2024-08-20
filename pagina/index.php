@@ -1,5 +1,31 @@
-<?php "../header.html"?>
 
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap 5.3.3 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- Horizon font -->
+    <link href="https://fonts.cdnfonts.com/css/horizon" rel="stylesheet" />
+    <!-- Codec Pro font-->
+    <link href="https://fonts.cdnfonts.com/css/codec-pro" rel="stylesheet">
+    <!-- CSS Links-->
+    <link rel="stylesheet" href="index_css/menu.css">
+    <link rel="stylesheet" href="index_css/header.css" />
+    <link rel="stylesheet" href="index_css/style.css">
+
+    <title>Inicio</title>
+  </head>
+<!--Header-->
+  <?php "../header.html"?>
+
+  <body id="body" style="max-width: 100vW">
     <div class="primerbloque">
       <img src="imgs/primerbloque.png" alt="primerbloque.png">
     </div>
