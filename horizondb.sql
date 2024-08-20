@@ -37,17 +37,6 @@ CREATE TABLE `domicilios` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `guardados`
---
-
-CREATE TABLE `guardados` (
-  `id_usuario` int(100) NOT NULL,
-  `id_producto` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `productos`
 --
 
