@@ -10,8 +10,8 @@
 ### Restante:
 - Subpaginas de productos
 - Contacto
-- Favoritos
 ### Necesita DB:
+- Favoritos
 - Pagina Admin
 - Pedidos
 - Carrito
