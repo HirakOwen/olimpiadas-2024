@@ -1,0 +1,180 @@
+/* Footer */
+
+footer {
+    background: black;
+}
+.footer-superior {
+    background: #C2C2C2;
+}
+.footer-superior img {
+    width: 25px;
+}
+.footer-superior ul {
+    list-style: none;
+}
+.footer-superior a {
+    color: black;
+    text-decoration: none;
+}
+.footer-superior a:hover {
+    text-decoration: underline;
+}
+.footer-inferior {
+    background: #444444;
+}
+.footer-inferior p, .footer-inferior b {
+    font-size: 15px;
+}
+
+.row{
+	--bs-gutter-x: 0 !important;
+
+}
+
+   /*Responsive del titulo*/
+
+@media (max-width: 576px) {
+.titulo{
+	font-size: 2.2em;
+}
+
+}
+
+@media (min-width: 576px) {
+.titulo{
+	font-size: 2.7em;
+}
+
+}
+
+@media (min-width: 756px) {
+.titulo{
+	font-size: 3.3em;
+
+}
+
+}
+
+/*Responsive del Icono del titulo*/
+
+@media (max-width: 576px) {
+    .icono {
+        flex: 0 0 auto;
+        width: 16%;
+
+    }
+
+}
+
+@media (min-width: 576px) {
+    .icono {
+        flex: 0 0 auto;
+        width: 10%;
+
+
+}}
+
+@media (min-width: 756px) {
+    .icono {
+        flex: 0 0 auto;
+        width: 14%;
+
+}
+}
+
+@media (min-width: 992px) {
+    .icono {
+        flex: 0 0 auto;
+        width: 8%;
+
+}
+}
+
+/*Tipografía*/
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: black;
+}
+
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: black;
+
+
+  }
+
+/*Recuadro Producto*/
+
+.producto{
+	background-color: #D4DCFF;
+	border-radius: 10px;
+	max-height: 70px;
+	margin-bottom: 20px;
+}
+
+@media (max-width: 576px) {
+
+.producto{
+		margin-bottom: 10px;
+
+}
+
+}
+
+.cruz{
+	width: 5%;
+	margin-left: 2.5%;
+	height: auto;
+}
+
+@media (min-width: 992px) {
+.cruz{
+	width: 3%;
+	height: auto;
+}
+
+}
+
+@media (max-width: 576px) {
+.cruz{
+	margin-left: 4%;
+}
+}
+
+
+.precio{
+	margin-left: 1.5%;
+}
+
+/*Responsive nombre producto*/
+
+.nombreprod{
+margin-top: 20px;
+}
+
+@media (max-width: 576px) {
+.nombreprod{
+	font-size: 1em;
+}
+
+}
+
+@media (min-width: 576px) {
+.nombreprod{
+	font-size: 1.2em;
+}
+
+}
+
+@media (min-width: 756px) {
+.nombreprod{
+	font-size: 1.5em;
+
+}
+
+}
