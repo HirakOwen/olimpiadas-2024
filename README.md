@@ -7,11 +7,12 @@
 - Inicio de sesion
 - FAQ
 - Terminos y condiciones
+- Favoritos
+
 ### Restante:
 - Subpaginas de productos
 - Contacto
 ### Necesita DB:
-- Favoritos
 - Pagina Admin
 - Pedidos
 - Carrito
