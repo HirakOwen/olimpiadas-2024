@@ -5,14 +5,15 @@
 - Perfil
 - Registro
 - Inicio de sesion
-### Restante:
 - FAQ
 - Terminos y condiciones
+### Restante:
 - Subpaginas de productos
 - Contacto
+- Favoritos
 ### Necesita DB:
 - Pagina Admin
 - Pedidos
 - Carrito
-- Guardados
+- Favoritos
 ### Link del host: https://olimpiadas-2024-peach.vercel.app/index.html
