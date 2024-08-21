@@ -1,7 +1,7 @@
 <?php
 include("../../conexion.php");
 
-$producto = trim($_POST['producto')];
+$producto = trim($_POST['producto']);
 $precio = trim($_POST['precio']);
 $descripcion = trim($_POST['descripcion']);
 $categoria = trim($_POST['categoria']);

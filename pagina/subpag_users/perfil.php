@@ -2,6 +2,10 @@
 session_start();
 if (!isset($_SESSION['nombre']) || !isset($_SESSION['id_usuario'])) {
   header("Location: ../index.php");
+} elseif (isset($_SESSION['permisos'])) {
+  if ($_SESSION['permisos'] === "admin") {
+    header("Location: ../index.php");
+  }
 }
 ?>
 

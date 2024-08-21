@@ -13,8 +13,6 @@ session_start();
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <!-- Horizon font -->
-    <link href="https://fonts.cdnfonts.com/css/horizon" rel="stylesheet" />
     <!-- Codec Pro font-->
     <link href="https://fonts.cdnfonts.com/css/codec-pro" rel="stylesheet">
     <!-- CSS Links-->

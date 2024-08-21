@@ -12,7 +12,7 @@ if ($password1 === $password2) {
     $sql_select = "SELECT nombre, email FROM usuarios WHERE nombre = '$nombre' OR email = '$email'";
     $resultado_select = $conn->query($sql_select);
     if ($resultado_select->num_rows > 0) {
-    die("Ya hay un usuario con este mail y nombre");
+        header("Location: registro.html");
     } else {
     // Consulta SQL
     $sql_insert = "INSERT INTO usuarios(`nombre`, `email`, `password`, `permisos`) 
@@ -30,6 +30,7 @@ if ($password1 === $password2) {
     session_start();
     $_SESSION['nombre'] = $nombre;
     $_SESSION['id_usuario'] = $id_usuario;
+    $_SESSION['permisos'] = "usuario";
     header("Location: ../index.php");
 }
 } else {

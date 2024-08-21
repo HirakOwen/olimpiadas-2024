@@ -1,3 +1,20 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+.content {
+    flex: 1;
+}
+.footer {
+    background: #f1f1f1;
+    text-align: center;
+    padding: 10px;
+}
+
 body {
     overflow-x: hidden;
 }
@@ -67,6 +84,46 @@ body {
 
 .row {
     --bs-gutter-x: 0 !important;
+}
+
+/* Productos en busqueda */
+
+.h2-resultados {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(185, 185, 185);
+}
+.tarjeta-busqueda {
+    background: #eeeeee;
+    min-height: 250px;
+    min-width: 400px;
+    max-width: 450px;
+}
+.tarjeta-busqueda h2 {
+    border-bottom: 1px solid rgb(190, 190, 190);
+}
+.tarjeta-busqueda p {
+    max-height: 150px;
+    border: 1px solid rgb(216, 216, 216);
+    border-radius: 3px;
+    padding: 5px;
+}
+.tarjeta-busqueda h4 {
+    color: rgb(43, 151, 0);
+    text-shadow: 0px 0px 3px rgb(192, 192, 192);
+}
+.tarjeta-busqueda div a {
+    padding: 5px 7px 5px 5px;
+}
+.tarjeta-busqueda div a img {
+    width: 25px;
+    filter: invert(100%);
+}
+
+/* Footer en pagina de busqueda */
+
+.footer-busqueda {
+    position: absolute;
+    bottom: 0;
 }
 
 /* Footer */

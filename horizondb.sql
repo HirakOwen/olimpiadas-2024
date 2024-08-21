@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-08-2024 a las 02:58:05
--- Versión del servidor: 10.1.13-MariaDB
--- Versión de PHP: 5.6.23
+-- Tiempo de generación: 21-08-2024 a las 19:37:21
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -32,7 +33,7 @@ CREATE TABLE `productos` (
   `precio` int(50) NOT NULL,
   `descripcion` text NOT NULL,
   `categoria` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `productos`
@@ -47,7 +48,9 @@ INSERT INTO `productos` (`id_productos`, `nombre_producto`, `precio`, `descripci
 (10, 'Remera Termica', 25000, 'remera termica deportiva para salir a correr', 'Ropa Deportiva'),
 (11, 'Handgrip', 1500, 'handgrip regulable hasta 50kg', 'Equipamiento Deportivo'),
 (12, 'Pesas 50k', 16888, 'pesas individuales de 50kg cada una', 'Fitness y entrenamiento'),
-(13, 'Botines de 11', 90000, 'botines para cancha de 11 color verde lima.', 'Calzado Deportivo');
+(13, 'Botines de 11', 90000, 'botines para cancha de 11 color verde lima.', 'Calzado Deportivo'),
+(14, 'adad', 123, 'awdwada', 'Nutricion y Suplementos'),
+(15, 'Cooler Gabinete Deepcool Negro 120mm', 6625, 'Este ventilador de 120 mm es la solución perfecta para mejorar la refrigeración de tu PC, especialmente si eres un entusiasta del gaming. Con una velocidad de 1300 rpm, proporciona un flujo de aire eficiente que ayuda a mantener tus componentes a temperaturas óptimas.', 'Equipamiento Deportivo');
 
 -- --------------------------------------------------------
 
@@ -64,7 +67,7 @@ CREATE TABLE `usuarios` (
   `domicilio` text NOT NULL,
   `codigo_postal` int(10) NOT NULL,
   `recibe` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -72,7 +75,12 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre`, `email`, `password`, `permisos`, `domicilio`, `codigo_postal`, `recibe`) VALUES
 (1, 'admin', 'admin@gmail.com', 'admin', 'admin', '', 0, ''),
-(2, '123', '123@gmail.com', '123', 'usuario', '', 0, '');
+(2, '123', '123@gmail.com', '123', 'usuario', '', 0, ''),
+(3, 'juli', 'juli@gmail.com', '1234', 'usuario', '', 0, ''),
+(4, '12345', '12345@gmail.com', '12345', 'usuario', '', 0, ''),
+(5, '31231', '45nuwahnud@ghjunuj.com', '123456', 'usuario', '', 0, ''),
+(6, 'gamer', 'gamer@123.com', 'gamer', 'usuario', '', 0, ''),
+(7, 'fefe', 'fefe@gmail.com', 'fefe', 'usuario', '', 0, '');
 
 --
 -- Índices para tablas volcadas
@@ -98,12 +106,15 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_productos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_productos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_usuario` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

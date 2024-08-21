@@ -47,6 +47,10 @@ header form input {
   background: none;
   border: none;
 }
+.header-separacion {
+  width: 100%;
+  height: 150px;
+}
 
 /* Responsive Header */
 
