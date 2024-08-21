@@ -30,7 +30,7 @@ session_start();
   include("../header.php"); 
 
   include("conexion.php");
-  $buscar = $_POST['buscar'];
+  $buscar = trim($_POST['buscar']);
   $sql = "SELECT * FROM productos WHERE nombre_producto LIKE '%$buscar%' OR descripcion LIKE '%$buscar%'";
   $resultado = $conn->query($sql);
 

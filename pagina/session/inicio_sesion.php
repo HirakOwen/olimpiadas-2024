@@ -2,9 +2,9 @@
 
 include("../conexion.php");
 
-$nombre = $_POST['name'];
-$email = $_POST['email'];
-$password =$_POST['password'];
+$nombre = trim($_POST['name']);
+$email = trim($_POST['email']);
+$password = trim($_POST['password']);
 
 // Consulta SQL
 $sql = "SELECT id_usuario, permisos FROM usuarios 

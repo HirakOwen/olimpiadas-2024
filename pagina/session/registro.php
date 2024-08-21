@@ -2,10 +2,10 @@
 
 include("../conexion.php");
 
-$nombre = $_POST['nombre'];
-$email = $_POST['email'];
-$password1 =$_POST['password1'];
-$password2 = $_POST['password2'];
+$nombre = trim($_POST['nombre']);
+$email = trim($_POST['email']);
+$password1 = trim($_POST['password1']);
+$password2 = trim($_POST['password2']);
 
 if ($password1 === $password2) {
     // Verifica que no hayan usuario con el mismo mail y nombre
