@@ -5,9 +5,9 @@ include("../conexion.php");
 $nombre = trim($_POST['nombre']);
 $email = trim($_POST['email']);
 $password1 = trim($_POST['password1']);
-$password2 = trim($_POST['password2']);
+$password_db = trim($_POST['password2']);
 
-if ($password1 === $password2) {
+if ($password1 === $password_db) {
     // Verifica que no hayan usuario con el mismo mail y nombre
     $sql_select = "SELECT nombre, email FROM usuarios WHERE nombre = '$nombre' OR email = '$email'";
     $resultado_select = $conn->query($sql_select);

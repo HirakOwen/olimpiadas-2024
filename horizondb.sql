@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-08-2024 a las 19:37:21
+-- Tiempo de generación: 21-08-2024 a las 22:29:03
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -66,21 +66,18 @@ CREATE TABLE `usuarios` (
   `permisos` varchar(20) NOT NULL,
   `domicilio` text NOT NULL,
   `codigo_postal` int(10) NOT NULL,
-  `recibe` text NOT NULL
+  `recibe` text NOT NULL,
+  `telefono` varchar(20) NOT NULL,
+  `DNI` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `nombre`, `email`, `password`, `permisos`, `domicilio`, `codigo_postal`, `recibe`) VALUES
-(1, 'admin', 'admin@gmail.com', 'admin', 'admin', '', 0, ''),
-(2, '123', '123@gmail.com', '123', 'usuario', '', 0, ''),
-(3, 'juli', 'juli@gmail.com', '1234', 'usuario', '', 0, ''),
-(4, '12345', '12345@gmail.com', '12345', 'usuario', '', 0, ''),
-(5, '31231', '45nuwahnud@ghjunuj.com', '123456', 'usuario', '', 0, ''),
-(6, 'gamer', 'gamer@123.com', 'gamer', 'usuario', '', 0, ''),
-(7, 'fefe', 'fefe@gmail.com', 'fefe', 'usuario', '', 0, '');
+INSERT INTO `usuarios` (`id_usuario`, `nombre`, `email`, `password`, `permisos`, `domicilio`, `codigo_postal`, `recibe`, `telefono`, `DNI`) VALUES
+(9, 'fefe', 'fefe@gmail.com', 'fefe', 'usuario', '', 0, '', '', 0),
+(10, '123progamer', '123emailnuevo@gmail.com', '123456', 'usuario', 'jorge 38089', 1234, 'fefardo', '', 0);
 
 --
 -- Índices para tablas volcadas
@@ -112,7 +109,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_usuario` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
