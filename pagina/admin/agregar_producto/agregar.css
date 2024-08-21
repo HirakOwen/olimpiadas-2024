@@ -1,0 +1,17 @@
+form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    border-radius: 10px;
+}
+form input, select {
+    border-radius: 5px;
+    width: 100%;
+}
+textarea {
+    border-radius: 5px;
+    resize: none;
+    overflow-x: none;
+}
