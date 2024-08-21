@@ -329,9 +329,9 @@ Teléfono: +54 9 11 5016-1658</p>
         <div class="mt-3">
           <ul class="d-md-flex justify-content-center align-items-center flex-column">
             <li><h3><b>Ayuda</b></h3>
-            <li><a href="tyc.html">Politicas de Reembolso</a></li>
-            <li><a href="tyc.html">Terminos y condiciones</a></li>
-            <li><a href="faq.html">Preguntas Frecuentes</a></li>
+            <li><a href="faq.php">Politicas de Reembolso</a></li>
+            <li><a href="tyc.php">Terminos y condiciones</a></li>
+            <li><a href="faq.php">Preguntas Frecuentes</a></li>
           </ul>
         </div>
         <div class="text-end mt-3 me-4">

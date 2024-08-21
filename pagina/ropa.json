@@ -1,0 +1,18 @@
+[
+    {
+        "nombre": "Nike Jordan blacks and white",
+        "precio": 30.99,
+        "descripcion": "Lorem ipsum"
+    },
+    {
+        "nombre": "SIGMA GORRA",
+        "precio": 19.99,
+        "descripcion": "Lorem ipsum"
+    },
+    {
+        "nombre": "Ropa",
+        "precio": 5,
+        "descripcion": "Lorem ipsum"
+
+    }
+]

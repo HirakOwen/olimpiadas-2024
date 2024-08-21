@@ -1,4 +1,6 @@
-
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -22,10 +24,10 @@
 
     <title>Inicio</title>
   </head>
-<!--Header-->
-  <?php "../header.html"?>
-
   <body id="body" style="max-width: 100vW">
+  <!--Header-->
+  <?php include("../header.php"); ?>
+
     <div class="primerbloque">
       <img src="imgs/primerbloque.png" alt="primerbloque.png">
     </div>
@@ -77,10 +79,10 @@
         <div class="mt-3">
           <ul class="d-md-flex justify-content-center align-items-center flex-column">
             <li><h3><b>Ayuda</b></h3>
-            <li><a href="#">Politicas de Reembolso</a></li>
-            <li><a href="#">Terminos y condiciones</a></li>
-            <li><a href="#">Formas de envio</a></li>
-            <li><a href="#">Medios de pago</a></li>
+            <li><a href="faq.php">Politicas de Reembolso</a></li>
+            <li><a href="tyc.php">Terminos y condiciones</a></li>
+            <li><a href="faq.php">Formas de envio</a></li>
+            <li><a href="faq.php">Medios de pago</a></li>
           </ul>
         </div>
         <div class="text-end mt-3 me-4">

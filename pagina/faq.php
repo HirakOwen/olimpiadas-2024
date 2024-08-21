@@ -46,7 +46,7 @@
     <!-- End Mobile -->
     <!-- Dekstop-->
       <div class="d-none justify-content-center align-items-center d-md-flex sm-horizon">
-        <a href="index.html"><img src="imgs/desktop/Desktop.png" alt="icon.png" class="sm-icon"/></a>
+        <a href="index.php"><img src="imgs/desktop/Desktop.png" alt="icon.png" class="sm-icon"/></a>
       </div>
     <!-- End Dekstop-->
       <form
@@ -397,9 +397,11 @@
         <div class="mt-3">
           <ul class="d-md-flex justify-content-center align-items-center flex-column">
             <li><h3><b>Ayuda</b></h3>
-            <li><a href="tyc.html">Politicas de Reembolso</a></li>
-            <li><a href="tyc.html">Terminos y condiciones</a></li>
-            <li><a href="faq.html">Preguntas Frecuentes</a></li>
+            <li><a href="faq.php">Politicas de Reembolso</a></li>
+            <li><a href="tyc.php">Terminos y condiciones</a></li>
+            <li><a href="faq.php">Formas de envio</a></li>
+            <li><a href="faq.php">Medios de pago</a></li>
+            <li><a href="faq.php">Preguntas Frecuentes</a></li>
 
           </ul>
         </div>
