@@ -13,7 +13,7 @@ include("../conexion.php");
 $nombre = $_SESSION['nombre'];
 $id_usuario = $_SESSION['id_usuario'];
 
-//Ejecuta la consulta
+//Consulta para obtener los demas datos del usuario
 $sql = "SELECT email, domicilio, codigo_postal, recibe, telefono, DNI FROM `usuarios` WHERE id_usuario = '$id_usuario'";
 $resultado = $conn->query($sql);
 // Verifica si devolvio resultados
@@ -55,7 +55,7 @@ if ($resultado->num_rows == 1) {
     class="d-flex justify-content-center align-items-center flex-column w-100 bg-black p-3 flex-lg-row justify-content-lg-around">
     <img src="../imgs/horizonsports.png" alt="horizonsports" />
     <form
-      action="../../busqueda.php"
+      action="../busqueda.php"
       method="POST"
       class="d-flex justify-content-center align-items-center flex-row mb-2 rounded-1 w-100">
       <input type="search" name="buscar" placeholder="Buscar productos..." />
@@ -72,6 +72,15 @@ if ($resultado->num_rows == 1) {
     <p class="p-0 m-0 mb-1">Volver al inicio</p>
   </a>
 
+  <!-- Mensaje si el usuario viene del carrito y no tiene completados los datos -->
+  <?php
+  if (isset($_GET['completar'])) {
+    echo '<div class="w-100 d-flex align-items-center justify-content-center">
+    <h1 class="pedido-incompleto">Complete los datos para poder realizar un pedido</h1>
+    </div>';
+  }
+  ?>
+
   <div
     class="w-100 d-flex justify-content-center align-items-center flex-column mt-3 flex-md-row">
     <div
@@ -82,7 +91,7 @@ if ($resultado->num_rows == 1) {
         </h3>
         <p>
           Podes ver los pedidos que tenes encargados haciendo click
-          <a href="#">AQUI</a>
+          <a href="pedidos/pedidos.php">AQUI</a>
         </p>
       </div>
 

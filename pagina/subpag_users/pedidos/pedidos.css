@@ -1,0 +1,22 @@
+.pedido-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 370px;
+    min-width: 400px;
+    border-radius: 5px;
+    background: rgb(221, 221, 221);
+}
+.pedido-card h2 {
+    border-bottom: 1px solid rgb(202, 202, 202);
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+.pedido-card ul {
+    list-style: none;
+    background: white;
+    border-radius: 5px;
+    border: 1px solid rgb(197, 197, 197);
+    margin: 0;
+    padding: 5px;
+}

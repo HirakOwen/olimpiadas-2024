@@ -1,0 +1,71 @@
+body {
+    background: rgb(236, 236, 236);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+/* Header */
+
+header {
+    gap: 20px;
+}
+header img {
+    width: 100%;
+    max-width: 600px;
+}
+header form {
+    background: white;
+    max-width: 450px;
+}
+header form input {
+  font-size: 20px;
+  width: 100%;
+  background: none;
+  border: none;
+}
+header form button {
+  cursor: pointer;
+  border: none;
+  background: white;
+  padding: 0;
+}
+header form img {
+    width: 30px;
+    height: 30px;
+}
+/* Link de regreso */
+
+.regresar {
+    text-decoration: none;
+}
+.regresar p {
+    font-size: 20px;
+}
+.regresar img {
+    padding: 0;
+    margin: 0;
+    width: 20px;
+}
+
+/* Tarjeta de pedido*/
+
+.pedido-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 370px;
+    min-width: 400px;
+    border-radius: 5px;
+    background: rgb(221, 221, 221);
+}
+.pedido-card h2 {
+    border-bottom: 1px solid rgb(202, 202, 202);
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+.pedido-card ul {
+    list-style: none;
+    background: white;
+    border-radius: 5px;
+    border: 1px solid rgb(197, 197, 197);
+    margin: 0;
+    padding: 5px;
+}
