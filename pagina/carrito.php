@@ -1,40 +1,8 @@
 <?php
 session_start();
-/*
-if (!isset($_SESSION['nombre']) || !isset($_SESSION['id_usuario'])) {
-  header("Location: index.php");
-}
-*/if(isset($_POST["vaciarCarro"])){
-  unset($_SESSION["carrito"]);}
-// Verificar si se ha enviado una solicitud para añadir un artículo al carrito
-if (isset($_POST['add_to_cart'])) {
-    // Inicializar el carrito si no existe
-    if (!isset($_SESSION['carrito'])) {
-        $_SESSION['carrito'] = [];
-    }
 
-    // Obtener el índice del artículo seleccionado
-    $indice = $_POST['indice'];
-
-    // Cargar los datos del archivo JSON
-    $ropa = file_get_contents('./ropa.json');
-    $ropa = json_decode($ropa, true);
-
-    // Agregar el artículo al carrito
-    $_SESSION['carrito'][$indice] = $ropa[$indice];
-
-    echo "Artículo añadido al carro: " . htmlspecialchars($ropa[$indice]['nombre']);
-    exit(); // Terminar el script aquí para evitar mostrar el contenido de la página
-}
-
-// Verificar si se ha enviado una solicitud para eliminar un artículo
-if (isset($_POST['remove_from_cart'])) {
-    $indice = $_POST['indice'];
-    unset($_SESSION['carrito'][$indice]); // Eliminar el artículo del carrito
-    // Reindexar el array para evitar huecos en los índices
-    $_SESSION['carrito'] = array_values($_SESSION['carrito']);
-}
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -59,99 +27,149 @@ if (isset($_POST['remove_from_cart'])) {
     <link rel="stylesheet" href="index_css/header.css" />
     <link rel="stylesheet" href="index_css/style.css">
     <link rel="stylesheet" href="./assets/carro/carrito.css" />
-    <style>
-      p {
-        margin: 0 !important;
-      }
-    </style>
+
+        <!--Poppins Font-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+          <script src="script.js"></script>
+
 
     <title>Inicio</title>
   </head>
-  <body id="body" style="max-width: 100vW">
-    <?php include("../header.php"); ?>
 
-    <main>
-      <section class="cart-header">
+      <?php include("../header.php"); 
+      $total=0;
+
+      //para reiniciar la variable que redirije en caso de no iniciar sesion y proceder la compra
+      if(!isset($_SESSION['desdecarrito'])){
+        $_SESSION['desdecarrito'] = false;
+      }
+      if($_SESSION['desdecarrito']){
+        $_SESSION['desdecarrito'] = false;
+      }
+      
+      if(!isset($_SESSION['pedidoenviado'])){
+        $_SESSION['pedidoenviado'] ="";
+      }
+      
+      ?>
+
+          <div class="containercarrito">
+
+                  <section class="cart-header">
         <img src="./assets/carro/titulocarrito.png" alt="Título Carrito" />
       </section>
-      <section class="cart-body">
-        <div class="cart-products-header">
-          <p>Productos en el carrito:</p>
-          <div class="cart-products-list">
-            <?php
-          if (isset($_SESSION['carrito']) && count($_SESSION['carrito']) > 0) {
-    foreach ($_SESSION['carrito'] as $indice => $carrito_item) {
-        ?>
-        <div class="cart-item">
-            <div class="cart-item-remove">
-                <form method="post" style="display:inline;">
-                    <input type="hidden" name="indice" value="<?php echo $indice; ?>">
-                    <button type="submit" name="remove_from_cart" style="border:none; background:none; cursor:pointer;">
+
+            <section class="cart-body row col-11 offset-1 d-flex">
+
+      <div class="cart-products-header">
+        <p class="responsive-text poppins-bold">Productos en el carrito:</p>
+
+      <div class="col-12">
+
+<?php // Verificar si el carrito está vacío
+if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) {
+    echo "<p>El carrito está vacío.</p>";
+    echo $_SESSION['pedidoenviado'];
+    unset($_SESSION['pedidoenviado']);
+    exit;
+}else{
+  
+
+             foreach ($_SESSION['cart'] as $index => $item) {     
+                ?>
+                
+
+    <div class="row col-12 prodcontainer p-4 rounded">
+
+            <div class="cart-item-remove col-2">
+                <form method="get" action="borrarproducto.php" style="display:inline;">
+                <input type="hidden" name="id" value="<?php echo $item['id']; ?>">
+                    <button type="submit" style="border:none; background:none; cursor:pointer;">
                         <img class="imagen-borrar" src="./assets/carro/cruzlol.png" alt="Eliminar Producto" />
                     </button>
                 </form>
             </div>
-            <p class="cart-item-name"><?php echo htmlspecialchars($carrito_item['nombre']); ?></p>
-         
-            <p class="cart-item-total">Total: <span>$<?php echo htmlspecialchars($carrito_item['precio']); ?></span></p>
-        </div>
-        <?php
+
+                <div class="col-4 d-flex align-items-center">
+                    <div class="nombre-prod offset-1 poppins-bold"><?php echo htmlspecialchars($item['nombre']); ?></div>
+
+                </div>
+
+              <form action="actualizar_carrito.php" class="d-flex col-1 align-items-center" method="post">
+
+                    <h6 class="poppins-regular textocant listaproductos">Cant:</h6>
+
+                    <div class="cantidad col-12">
+                        <input type="number" name="cantidad[<?php echo $index; ?>]" min="1" value="<?php echo intval($item['cantidad']); ?>" class="input-cantidad">
+                    </div>
+              </form>
+
+                <div class="col-2 d-flex align-items-center offset-3">
+
+                    <div class="nombre-prod offset-1 poppins-bold">$<?php echo number_format(($item['precio']*$item['cantidad'])); ?> ARS</div>
+
+                </div>
+
+
+    </div>
+
+
+<?php }?>
+
+
+</div>
+
+<div class="row">
+
+    <!--Recuadro azul con la lista de precios unitarios-->
+
+    <div class="listaprecios col-md-3 mb-3">
+    <h6 class="poppins-bold responsive-text">Precios Unitarios:</h6>
+    <br><br>
+    <?php
+    foreach ($_SESSION['cart'] as $index => $item) {
+        $itemTotal = $item['precio'] * $item['cantidad'];
+        $total += $itemTotal;
+    ?>
+        <h6 class="poppins-regular nombre-prod">
+            <?php echo htmlspecialchars($item['nombre']); ?>: <b>$<?php echo number_format($item['precio'], 2); ?><br><br></b>
+        </h6>
+    <?php
     }
-} else {
-    echo "El carrito está vacío.";
-}
-?>
-            
-            
-          </div>
-          <form method="POST"><button class="cart-clear-button"type="submit" name="vaciarCarro"> Vaciar carrito</button></form>
-        
-        </div>
-<?php
-        $total = 0; // Inicializar el total
+    // Al finalizar el bucle, muestra el total
+    $_SESSION['total'] = $total;
+    ?>
+    <h6 class="poppins-bold responsive-text">Total a pagar: $<?php echo number_format($total, 2);} ?></h6>
+</div>
 
-if (isset($_SESSION['carrito']) && count($_SESSION['carrito']) > 0) {
-    echo '<div class="cart-summary">';
-    echo '<p>Precios unitarios</p>';
-    echo '<div class="cart-summary-price">';
 
-    foreach ($_SESSION['carrito'] as $indice => $carrito_item) {
-        $precio = $carrito_item['precio'];
-        $total += $precio; // Sumar el precio al total
-        echo "<p>\$$precio " . htmlspecialchars($carrito_item['nombre']) . "</p>";
-    }
+    <div class="offset-1 col-2">
 
-    echo '</div>';
-    echo '<div class="cart-summary-details">';
-    echo "<p><span>Total a pagar: </span> <span> \$$total</span></p>";
-    echo '<button><p>Proceder con la compra</p><div class="icon-button"><img src="./assets/carro/pagar.png" /></div></button>';
-    echo '</div>';
-    echo '</div>';
-} 
-?>
+      <!--Botón para vaciar el carrito-->
+
+      <a href="vaciarcarrito.php"><button class="cart-clear-button"> Vaciar carrito</button></a>
+
+    </div>
+
+    <div class="offset-1 col-2">
+
+      <!--Botón para subir el pedido-->
+
+      <a href="cargarpedido.php"><button class="cart-clear-button">Proceder con el Pago</button></a>
+
+    </div>
+
+</div>
+</div>
+
+</div>
+
       </section>
-    </main>
+    </div>
+
   </body>
-  <script src="script.js"></script>
-  <script>
-    document
-      .querySelectorAll(".cart-item-quantity-input")
-      .forEach(function (input) {
-        input.addEventListener("input", function (event) {
-          this.value = this.value.replace(/\D/g, "");
-        });
-      });   
-        function adjustMainMargin() {
-            const headerHeight = document.querySelector('header').offsetHeight;
-            document.querySelector('main').style.paddingTop = headerHeight + 'px';
-        }
 
-        adjustMainMargin();
-
-  
-        const resizeObserver = new ResizeObserver(adjustMainMargin);
-
-    
-        resizeObserver.observe(header);
-  </script>
 </html>

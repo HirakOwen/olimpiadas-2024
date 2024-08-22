@@ -49,17 +49,18 @@ if ($resultado->num_rows == 1) {
 </head>
 
 <body>
+
   <!-- Header -->
   <header
     class="d-flex justify-content-center align-items-center flex-column w-100 bg-black p-3 flex-lg-row justify-content-lg-around">
     <img src="../imgs/horizonsports.png" alt="horizonsports" />
     <form
-      action="../busqueda.php"
+      action="../../busqueda.php"
       method="POST"
       class="d-flex justify-content-center align-items-center flex-row mb-2 rounded-1 w-100">
       <input type="search" name="buscar" placeholder="Buscar productos..." />
       <button class="rounded-5">
-        <img src="../imgs/lupa.png" alt="lupa.png" class="p-0 m-0" />
+        <img src="imgs/lupa.png" alt="lupa.png" class="p-0 m-0" />
       </button>
     </form>
   </header>

@@ -33,7 +33,13 @@ if (isset($_GET['id'])) {
     <title>Cambiar domicilio</title>
 </head>
 
-<body class="d-flex justify-content-center align-items-center flex-column h-100 w-100">
+<body class="d-flex justify-content-center flex-column h-100 w-100">
+
+  <!-- Header -->
+<?php include("../headerperfil.php"); ?>
+
+
+  <!-- End Header-->
 
     <form action="proceder_cambio.php?id=<?php echo $id; ?>" method="POST" class="d-flex justify-content-center align-items-center flex-column p-4 bg-dark gap-3">
         <h3 class="text-white">Cambiar Domicilio</h3>

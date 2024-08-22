@@ -168,6 +168,7 @@
 	padding: 10px;
 	border:2px solid black;
 	border-radius: 4px;
+  margin-top: 20px;;
 
 font-family: "Poppins", sans-serif;
   font-weight: 700;
@@ -175,3 +176,18 @@ font-family: "Poppins", sans-serif;
   color: black;
 
 }
+
+.mensaje-carrito{
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #4CAF50; /* Color verde */
+        color: white;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000; /* Asegura que el mensaje esté por encima de otros elementos */
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out; /* Transición para desaparecer suavemente */
+        text-align: center;
+    }

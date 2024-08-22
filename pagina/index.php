@@ -45,31 +45,44 @@ session_start();
     </div>
       
     </div>
+    
 
     <div class="post-slider d-flex flex-column w-100 gap-3">
-      <h2 class="text-center mt-4">¿Que ofrecemos?</h2>
+      <h2 class="text-center mt-4 subtitle">¿Que ofrecemos?</h2>
       <div class="d-flex justify-content-center align-items-center text-center row gap-4">
-        <div class="tarjeta col-auto d-flex justify-content-center align-items-center text-center flex-column p-2">
-          <img src="imgs/ofrecer-imgs/ropa-de-deporte.png" alt="ropa.png">
+
+          <div class="tarjeta col-auto d-flex justify-content-center align-items-center text-center flex-column p-2">
+          <a href="tienda_busqueda.php#ropa"><img src="imgs/ofrecer-imgs/ropa-de-deporte.png" alt="ropa.png"></a>
           Ropa deportiva
-        </div>
+            </div>
+
+
         <div class="tarjeta col-auto d-flex justify-content-center align-items-center text-center flex-column p-2">
-          <img src="imgs/ofrecer-imgs/zapatos.png" alt="zapatos.png">
+        <a href="tienda_busqueda.php#calzado"><img src="imgs/ofrecer-imgs/zapatos.png" alt="zapatos.png"></a>
           Calzado deportivo
         </div>
+
+
         <div class="tarjeta col-auto d-flex justify-content-center align-items-center text-center flex-column p-2">
-          <img src="imgs/ofrecer-imgs/pesa.png" alt="Equipamiento.png">
+        <a href="tienda_busqueda.php#equipo"><img src="imgs/ofrecer-imgs/pesa.png" alt="Equipamiento.png"></a>
           Equipamiento deportivo
         </div>
+
+
+
         <div class="tarjeta col-auto d-flex justify-content-center align-items-center text-center flex-column p-2">
-          <img src="imgs/ofrecer-imgs/comida-suplementaria.png" alt="suplementos.png">
+        <a href="tienda_busqueda.php#nutricion"><img src="imgs/ofrecer-imgs/comida-suplementaria.png" alt="suplementos.png"></a>
           Nutricion y Suplementos
         </div>
+
+
+
         <div class="tarjeta col-auto d-flex justify-content-center align-items-center text-center flex-column p-2">
-          <img src="imgs/ofrecer-imgs/levantamiento-de-pesas.png" alt="fitness.png">
+        <a href="tienda_busqueda.php#fitness"><img src="imgs/ofrecer-imgs/levantamiento-de-pesas.png" alt="fitness.png"></a>
           Fitness y Entrenamiento
         </div>
       </div>
+
     </div>
 
     <footer class="w-100 mt-5">

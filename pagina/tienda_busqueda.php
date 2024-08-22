@@ -16,49 +16,376 @@
 </head>
 <body>
 
-    <?php include("../header.php"); ?>
+        <!--Poppins Font-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+    <?php include("../header.php");
+ include("conexion.php");
+
+$productMessageId = isset($_SESSION['message']['id']) ? intval($_SESSION['message']['id']) : 0;
+
+
+?>
 
     <!--Container Categoria-->
     <div class="containertienda">
-        <div class="containercat" id="ropa_categoria">
+        <div class="containercat" id="ropa">
             <h3 class="titcategoria poppins-bold">Ropa Deportiva</h3>
         </div>
     </div>
     <!--Fin conteiner Categoría-->
 
     <!--Container Producto-->
+
+
+     <?php $sql = "SELECT * FROM productos WHERE categoria = 'Ropa Deportiva' ";
+$result = $conn->query($sql);
+
+
+
+
+     //Calcular cantidad de productos para generar las cards
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+
+                    ?>
     <div class="container mt-5">
         <div class="row">
-            <?php 
-        // Cargar los datos del archivo JSON
-            $ropa = file_get_contents('./ropa.json');
-            $ropa = json_decode($ropa, true);
 
-        // Mostrar los artículos de ropa en formato de tarjeta
-            foreach ($ropa as $indice => $item) { ?>
-                <div class="col-md-4 mb-4">
                     <div class="card">
                         <div class="card-body">
                             <h3 class="titproducto poppins-regular">
 
                                 <!--Nombre Producto-->
-                                <?php echo htmlspecialchars($item['nombre']); ?></h3>
+                                <?php echo htmlspecialchars($row["nombre_producto"]); ?></h3>
                                 <h3 class="descproducto poppins-regular">
                                     <!--Descriopción producto Producto-->
-                                    <?php echo htmlspecialchars($item['descripcion']); ?></h3>
+                                    <?php echo htmlspecialchars($row["descripcion"]); ?></h3>
 
                                     <h3 class="precio poppins-bold" align="center">$
 
                                         <!--Precio Producto-->
-                                        <?php echo htmlspecialchars($item['precio']); ?></h3>
+                                        <?php echo htmlspecialchars($row["precio"]); ?></h3>
                                         <!-- Botón de añadir al carrito -->
-                                        <button class="add-to-cart btn btn-primary mt-2" data-indice="<?php echo $indice; ?>">Añadir al carro</button>
+
+
+                                        <?php
+                                                if ($row["id_productos"] == $productMessageId && isset($_SESSION['message'])) { ?>
+           <h3 class="mensajecarrito"> <?php echo htmlspecialchars($_SESSION['message']['text']);
+            unset($_SESSION['message']);
+        }   ?></h3>
+
+                                        <form method="get" action="anadircarrito.php">
+                                            <input type="hidden" name="action" value="add">
+                                            <?php echo '<input type="hidden" name="id" value="'.$row["id_productos"].'">';?>
+                                            <?php echo '<input type="hidden" name="nombre" value="' . htmlspecialchars($row["nombre_producto"]) . '">'; ?>
+                                            <h5 class="poppins-regular">Ingrese cantidad</h5>
+                                            <input type="number" name="cantidad" class="enviar" min="1" value="1">
+                                            <?php echo '<input type="hidden" name="precio" value="' . $row["precio"] . '">'; ?>
+                                            <br>
+
+                                            <input type="submit" class="añadir" value="Agregar al carrito">
+                                        </form>
+                                                
                                     </div>
                                 </div>
                             </div>
-                        <?php } ?>
-                    </div>
+                        
                 </div>
+
+<?php }}else {      ?>
+
+    <h3 class="noproducto poppins-regular" align="center">No hay productos de ropa disponible </h3 ><?php } ?>
+
+<!-- FIn conteneiner Producto-->
+<div class="row" style="margin-top:60px;" id="calzado"></div>
+
+    <!--Container Categoria-->
+        <div class="containercat" >
+            <h3 class="titcategoria poppins-bold">Calzado Deportivo</h3>
+        </div>
+    </div>
+    <!--Fin conteiner Categoría-->
+
+
+    <!--Container Producto-->
+
+
+     <?php $sql = "SELECT * FROM productos WHERE categoria = 'Calzado Deportivo' ";
+$result = $conn->query($sql);
+
+
+     //Calcular cantidad de productos para generar las cards
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+
+                    ?>
+    <div class="container mt-5">
+        <div class="row">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="titproducto poppins-regular">
+
+                                <!--Nombre Producto-->
+                                <?php echo htmlspecialchars($row["nombre_producto"]); ?></h3>
+                                <h3 class="descproducto poppins-regular">
+                                    <!--Descriopción producto Producto-->
+                                    <?php echo htmlspecialchars($row["descripcion"]); ?></h3>
+
+                                    <h3 class="precio poppins-bold" align="center">$
+
+                                        <!--Precio Producto-->
+                                        <?php echo htmlspecialchars($row["precio"]); ?></h3>
+                                        <!-- Botón de añadir al carrito -->
+
+
+                                        <?php
+                                                if ($row["id_productos"] == $productMessageId && isset($_SESSION['message'])) { ?>
+           <h3 class="mensajecarrito"> <?php echo htmlspecialchars($_SESSION['message']['text']);
+            unset($_SESSION['message']);
+        }   ?></h3>
+
+                                        <form method="get" action="anadircarrito.php">
+                                            <input type="hidden" name="action" value="add">
+                                            <?php echo '<input type="hidden" name="id" value="'.$row["id_productos"].'">';?>
+                                            <?php echo '<input type="hidden" name="nombre" value="' . htmlspecialchars($row["nombre_producto"]) . '">'; ?>
+                                            <h5 class="poppins-regular">Ingrese cantidad</h5>
+                                            <input type="number" name="cantidad" class="enviar" min="1" value="1">
+                                            <?php echo '<input type="hidden" name="precio" value="' . $row["precio"] . '">'; ?>
+                                            <br>
+
+                                            <input type="submit" class="añadir" value="Agregar al carrito">
+                                        </form>
+                                                
+                                    </div>
+                                </div>
+                            </div>
+                        
+                </div>
+
+<?php }}else {      ?>
+
+    <h3 class="noproducto poppins-regular" align="center">No hay productos de ropa disponible </h3 ><?php } ?>
+
+
+<!-- FIn conteneiner Producto-->
+<div class="row" style="margin-top:60px;" id="equipo"></div>
+    <!--Container Categoria-->
+        <div class="containercat">
+            <h3 class="titcategoria poppins-bold">Equipamiento Deportivo</h3>
+        </div>
+    </div>
+    <!--Fin conteiner Categoría-->
+
+    <!--Container Producto-->
+
+
+     <?php $sql = "SELECT * FROM productos WHERE categoria = 'Equipamiento Deportivo' ";
+$result = $conn->query($sql);
+
+
+     //Calcular cantidad de productos para generar las cards
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+
+                    ?>
+    <div class="container mt-5">
+        <div class="row">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="titproducto poppins-regular">
+
+                                <!--Nombre Producto-->
+                                <?php echo htmlspecialchars($row["nombre_producto"]); ?></h3>
+                                <h3 class="descproducto poppins-regular">
+                                    <!--Descriopción producto Producto-->
+                                    <?php echo htmlspecialchars($row["descripcion"]); ?></h3>
+
+                                    <h3 class="precio poppins-bold" align="center">$
+
+                                        <!--Precio Producto-->
+                                        <?php echo htmlspecialchars($row["precio"]); ?></h3>
+                                        <!-- Botón de añadir al carrito -->
+
+
+                                        <?php
+                                                if ($row["id_productos"] == $productMessageId && isset($_SESSION['message'])) { ?>
+           <h3 class="mensajecarrito"> <?php echo htmlspecialchars($_SESSION['message']['text']);
+            unset($_SESSION['message']);
+        }   ?></h3>
+
+                                        <form method="get" action="anadircarrito.php">
+                                            <input type="hidden" name="action" value="add">
+                                            <?php echo '<input type="hidden" name="id" value="'.$row["id_productos"].'">';?>
+                                            <?php echo '<input type="hidden" name="nombre" value="' . htmlspecialchars($row["nombre_producto"]) . '">'; ?>
+                                            <h5 class="poppins-regular">Ingrese cantidad</h5>
+                                            <input type="number" name="cantidad" class="enviar" min="1" value="1">
+                                            <?php echo '<input type="hidden" name="precio" value="' . $row["precio"] . '">'; ?>
+                                            <br>
+
+                                            <input type="submit" class="añadir" value="Agregar al carrito">
+                                        </form>
+                                                
+                                    </div>
+                                </div>
+                            </div>
+                        
+                </div>
+
+<?php }}else {      ?>
+
+    <h3 class="noproducto poppins-regular" align="center">No hay productos de ropa disponible </h3 ><?php } ?>
+
+<!-- FIn conteneiner Producto-->
+<div class="row" style="margin-top:60px;" id="nutricion"></div>
+    <!--Container Categoria-->
+        <div class="containercat">
+            <h3 class="titcategoria poppins-bold">Nutricion y Suplementos</h3>
+        </div>
+    </div>
+    <!--Fin conteiner Categoría-->
+
+   <!--Container Producto-->
+
+
+     <?php $sql = "SELECT * FROM productos WHERE categoria = 'Nutricion y Suplementos' ";
+$result = $conn->query($sql);
+
+
+     //Calcular cantidad de productos para generar las cards
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+
+                    ?>
+    <div class="container mt-5">
+        <div class="row">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="titproducto poppins-regular">
+
+                                <!--Nombre Producto-->
+                                <?php echo htmlspecialchars($row["nombre_producto"]); ?></h3>
+                                <h3 class="descproducto poppins-regular">
+                                    <!--Descriopción producto Producto-->
+                                    <?php echo htmlspecialchars($row["descripcion"]); ?></h3>
+
+                                    <h3 class="precio poppins-bold" align="center">$
+
+                                        <!--Precio Producto-->
+                                        <?php echo htmlspecialchars($row["precio"]); ?></h3>
+                                        <!-- Botón de añadir al carrito -->
+
+
+                                        <?php
+                                                if ($row["id_productos"] == $productMessageId && isset($_SESSION['message'])) { ?>
+           <h3 class="mensajecarrito"> <?php echo htmlspecialchars($_SESSION['message']['text']);
+            unset($_SESSION['message']);
+        }   ?></h3>
+
+                                        <form method="get" action="anadircarrito.php">
+                                            <input type="hidden" name="action" value="add">
+                                            <?php echo '<input type="hidden" name="id" value="'.$row["id_productos"].'">';?>
+                                            <?php echo '<input type="hidden" name="nombre" value="' . htmlspecialchars($row["nombre_producto"]) . '">'; ?>
+                                            <h5 class="poppins-regular">Ingrese cantidad</h5>
+                                            <input type="number" name="cantidad" class="enviar" min="1" value="1">
+                                            <?php echo '<input type="hidden" name="precio" value="' . $row["precio"] . '">'; ?>
+                                            <br>
+
+                                            <input type="submit" class="añadir" value="Agregar al carrito">
+                                        </form>
+                                                
+                                    </div>
+                                </div>
+                            </div>
+                        
+                </div>
+
+<?php }}else {      ?>
+
+    <h3 class="noproducto poppins-regular" align="center">No hay productos de ropa disponible </h3 ><?php } ?>
+
+<!-- FIn conteneiner Producto-->
+
+<div class="row" style="margin-top:60px;" id="fitness"></div>
+
+    <!--Container Categoria-->
+        <div class="containercat">
+            <h3 class="titcategoria poppins-bold">Fitness y Entrenamiento</h3>
+        </div>
+    </div>
+    <!--Fin conteiner Categoría-->
+
+       <!--Container Producto-->
+
+
+     <?php $sql = "SELECT * FROM productos WHERE categoria = 'Fitness y Entrenamiento' ";
+$result = $conn->query($sql);
+
+
+     //Calcular cantidad de productos para generar las cards
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+
+                    ?>
+    <div class="container mt-5">
+        <div class="row">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="titproducto poppins-regular">
+
+                                <!--Nombre Producto-->
+                                <?php echo htmlspecialchars($row["nombre_producto"]); ?></h3>
+                                <h3 class="descproducto poppins-regular">
+                                    <!--Descriopción producto Producto-->
+                                    <?php echo htmlspecialchars($row["descripcion"]); ?></h3>
+
+                                    <h3 class="precio poppins-bold" align="center">$
+
+                                        <!--Precio Producto-->
+                                        <?php echo htmlspecialchars($row["precio"]); ?></h3>
+                                        <!-- Botón de añadir al carrito -->
+
+
+                                        <?php
+                                                if ($row["id_productos"] == $productMessageId && isset($_SESSION['message'])) { ?>
+           <h3 class="mensajecarrito"> <?php echo htmlspecialchars($_SESSION['message']['text']);
+            unset($_SESSION['message']);
+        }   ?></h3>
+
+                                        <form method="get" action="anadircarrito.php">
+                                            <input type="hidden" name="action" value="add">
+                                            <?php echo '<input type="hidden" name="id" value="'.$row["id_productos"].'">';?>
+                                            <?php echo '<input type="hidden" name="nombre" value="' . htmlspecialchars($row["nombre_producto"]) . '">'; ?>
+                                            <h5 class="poppins-regular">Ingrese cantidad</h5>
+                                            <input type="number" name="cantidad" class="enviar" min="1" value="1">
+                                            <?php echo '<input type="hidden" name="precio" value="' . $row["precio"] . '">'; ?>
+                                            <br>
+
+                                            <input type="submit" class="añadir" value="Agregar al carrito">
+                                        </form>
+                                                
+                                    </div>
+                                </div>
+                            </div>
+                        
+                </div>
+
+<?php }}else {      ?>
+
+    <h3 class="noproducto poppins-regular" align="center">No hay productos de ropa disponible </h3 ><?php } ?>
+
+<!-- FIn conteneiner Producto-->
+
+
+
+
+
 
 
                 <footer class="w-100 mt-5">

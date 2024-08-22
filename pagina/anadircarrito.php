@@ -1,0 +1,44 @@
+<?php
+session_start();
+
+// Obtener los parámetros de la URL
+$action = isset($_GET['action']) ? $_GET['action'] : '';
+$id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+$nombre = isset($_GET['nombre']) ? $_GET['nombre'] : '';
+$precio = isset($_GET['precio']) ? floatval($_GET['precio']) : 0.0;
+$cantidad = isset($_GET['cantidad']) ? intval($_GET['cantidad']) : 1;
+
+if ($action === 'add' && $id > 0) {
+    // Inicializar la variable de sesión del carrito si no existe
+    if (!isset($_SESSION['cart'])) {
+        $_SESSION['cart'] = array();
+    }
+
+    // Verificar si el producto ya está en el carrito
+
+    //False funcionara como variable para guardar el dato si se encontro el producto
+
+    $found = false;
+    foreach ($_SESSION['cart'] as &$item) {
+
+    	    //Aca se verifica la id del producto actual con todas las del carrito
+        if ($item['id'] == $id) {//De encontrarse una id con el mismo valor en el carrito, se incrementa su cantidad en el carrito
+            $item['cantidad'] += $cantidad;
+            $found = true;
+            break; //este break es para salir de la estructura y deje de buscar en el carrito poruqe ya encontro la id
+        }
+    }
+    
+    // Si el producto no está en el carrito, añadirlo
+    if (!$found) {
+        $_SESSION['cart'][] = array('id' => $id, 'nombre' => $nombre, 'precio' => $precio, 'cantidad' => $cantidad);
+    }
+
+    // Establecer mensaje de confirmación en la sesión
+    $_SESSION['message'] = array('text' => "¡Se ha añadido al carrito!", 'id' => $id);
+}
+
+// Redirigir de vuelta a la página de productos con un parámetro de anclaje
+header("Location: tienda_busqueda.php#$id");
+exit;
+?>

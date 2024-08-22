@@ -20,7 +20,10 @@ if ($resultado->num_rows == 1) {
     $_SESSION['nombre'] = $nombre;
     $_SESSION['id_usuario'] = $id_usuario;
     $_SESSION['permisos'] = $permisos;
-    header("Location: ../index.php");
+    if($_SESSION['desdecarrito']){
+        header("Location: ../carrito.php");
+    }else{
+    header("Location: ../index.php");}
 } else {
     header("Location: inicio_sesion.html");
 }

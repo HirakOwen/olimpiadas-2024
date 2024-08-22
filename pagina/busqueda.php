@@ -1,8 +1,5 @@
 <?php
-session_start();
-if ($_SESSION['permisos'] === "admin") {
-  header("Location: index.php");
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -22,6 +19,7 @@ if ($_SESSION['permisos'] === "admin") {
   <link rel="stylesheet" href="index_css/menu.css">
   <link rel="stylesheet" href="index_css/header.css" />
   <link rel="stylesheet" href="index_css/style.css">
+  <link rel="stylesheet" href="tienda/Lista_prod.css">
 
   <title>Inicio</title>
 </head>
@@ -31,6 +29,7 @@ if ($_SESSION['permisos'] === "admin") {
   <!--Header-->
   <?php
   include("../header.php");
+  $productMessageId = isset($_SESSION['message']['id']) ? intval($_SESSION['message']['id']) : 0;
   ?>
   <div class="header-separacion">
     .
@@ -53,19 +52,47 @@ if ($_SESSION['permisos'] === "admin") {
           $descripcion = $row['descripcion'];
           $categoria = $row['categoria'];
         ?>
-          <div class="d-flex justify-content-around align-items-center flex-column rounded-1 p-3 tarjeta-busqueda">
-            <h2 class="text-start w-100 pb-2"><?php echo $producto; ?></h2>
-            <p class="w-100 text-start"><?php echo $descripcion; ?></p>
-            <div class="d-flex justify-content-center align-items-center flex-row w-100">
-              <h6 class="w-75 fw-bold">Envio gratis</h6>
-              <h4 class="w-25 text-end"><?php echo "$" . $precio; ?></h4>
-            </div>
-            <div class="d-flex justify-content-end w-100">
-              <a href="#?id=<?php echo $id_producto; ?>" class="btn btn-primary d-flex justify-content-center align-content-center">
-                <img src="imgs/carrito-de-compras.png" alt="carrito.png">
-              </a>
-            </div>
-          </div>
+              <div class="container mt-5" id="<?php echo $row['$id_producto'];?>">
+        <div class="row">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="titproducto poppins-regular">
+
+                                <!--Nombre Producto-->
+                                <?php echo htmlspecialchars($row["nombre_producto"]); ?></h3>
+                                <h3 class="descproducto poppins-regular">
+                                    <!--Descriopción producto Producto-->
+                                    <?php echo htmlspecialchars($row["descripcion"]); ?></h3>
+
+                                    <h3 class="precio poppins-bold" align="center">$
+
+                                        <!--Precio Producto-->
+                                        <?php echo htmlspecialchars($row["precio"]); ?></h3>
+                                        <!-- Botón de añadir al carrito -->
+
+
+                                        <?php
+                                                if ($row["id_productos"] == $productMessageId && isset($_SESSION['message'])) { ?>
+           <h3 class="mensajecarrito"> <?php echo htmlspecialchars($_SESSION['message']['text']);
+            unset($_SESSION['message']);
+        }   ?></h3>
+                                      <!--Boton e input para cambiar cantidad-->
+                                        <form method="get" action="anadircarrito.php">
+                                            <input type="hidden" name="action" value="add">
+                                            <?php echo '<input type="hidden" name="id" value="'.$row["id_productos"].'">';?>
+                                            <?php echo '<input type="hidden" name="nombre" value="' . htmlspecialchars($row["nombre_producto"]) . '">'; ?>
+                                            <h5 class="poppins-regular">Ingrese cantidad</h5>
+                                            <input type="number" name="cantidad" class="enviar" min="1" value="1">
+                                            <?php echo '<input type="hidden" name="precio" value="' . $row["precio"] . '">'; ?>
+                                            <br>
+
+                                            <input type="submit" class="añadir" value="Agregar al carrito">
+                                        </form>
+
+      </div></div></div></div>
+
+                                  
         <?php
         }
         ?>
