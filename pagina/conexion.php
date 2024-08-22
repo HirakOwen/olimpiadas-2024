@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "usbw";
+$password = "";
 $dbname = "horizondb";
 
 // Crear conexión

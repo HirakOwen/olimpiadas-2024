@@ -88,18 +88,16 @@ body {
 
 /* Productos en busqueda */
 
-.h2-resultados {
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    color: rgb(185, 185, 185);
+.h1-resultados {
+    height: 110px;
+    color: white;
+    margin: 0;
 }
 .tarjeta-busqueda {
     background: #eeeeee;
     min-height: 250px;
     min-width: 400px;
     max-width: 450px;
-}
-.tarjeta-busqueda h2 {
-    border-bottom: 1px solid rgb(190, 190, 190);
 }
 .tarjeta-busqueda p {
     max-height: 150px;

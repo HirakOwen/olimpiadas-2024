@@ -60,7 +60,7 @@ if ($resultado->num_rows == 1) {
       class="d-flex justify-content-center align-items-center flex-row mb-2 rounded-1 w-100">
       <input type="search" name="buscar" placeholder="Buscar productos..." />
       <button class="rounded-5">
-        <img src="imgs/lupa.png" alt="lupa.png" class="p-0 m-0" />
+        <img src="../imgs/lupa.png" alt="lupa.png" class="p-0 m-0" />
       </button>
     </form>
   </header>

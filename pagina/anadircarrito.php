@@ -1,5 +1,12 @@
 <?php
 session_start();
+if (!isset($_SESSION['nombre']) && !isset($_SESSION['id_usuario'])) {
+    header("Location: session/inicio_sesion.html");
+} elseif (isset($_SESSION['permisos'])) {   
+    if ($_SESSION['permisos'] === "admin") {
+        header("Location: index.php");
+    }
+}
 
 // Obtener los parámetros de la URL
 $action = isset($_GET['action']) ? $_GET['action'] : '';
@@ -38,7 +45,17 @@ if ($action === 'add' && $id > 0) {
     $_SESSION['message'] = array('text' => "¡Se ha añadido al carrito!", 'id' => $id);
 }
 
-// Redirigir de vuelta a la página de productos con un parámetro de anclaje
-header("Location: tienda_busqueda.php#$id");
-exit;
+// verifica si existe la variable buscar
+if (isset($_GET['buscar'])) {
+    // Si existe redirige a la pagina de busqueda
+    $buscar = urlencode($_GET['buscar']);
+    header("Location: busqueda.php?buscar=$buscar");
+    exit;
+} elseif (isset($_GET['filtro'])) {
+    // Si no existe redirige a la pagina de tienda
+    $filtro = urlencode($_GET['filtro']);
+    header("Location: tienda_busqueda.php?filtro=$filtro");
+    exit;
+}
+
 ?>

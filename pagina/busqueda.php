@@ -28,6 +28,7 @@
   <script src="script.js"></script>
   <!--Header-->
   <?php
+  session_start();
   include("../header.php");
   $productMessageId = isset($_SESSION['message']['id']) ? intval($_SESSION['message']['id']) : 0;
   ?>
@@ -36,63 +37,75 @@
   </div>
   <?php
   include("conexion.php");
-  $buscar = trim($_POST['buscar']);
+  //Verifica si el usuario entro a la pagina enviando el formulario de busqueda o si fue redirigido por anadircarrito.php
+  if (isset($_GET['buscar'])) {
+    // Redirigido
+    $buscar = $_GET['buscar'];
+  } elseif (isset($_POST['buscar'])) {
+    // Formulario
+    $buscar = trim($_POST['buscar']);
+  }
   $sql = "SELECT * FROM productos WHERE nombre_producto LIKE '%$buscar%' OR descripcion LIKE '%$buscar%'";
   $resultado = $conn->query($sql);
   if ($resultado->num_rows > 0) {
   ?>
     <div class="content d-flex flex-column">
-      <h2 class="container mb-5 h2-resultados">Resultados de la busqueda: <?php echo "<b>" . $buscar . "</b>"; ?> </h2>
+      <h1 class="h1-resultados d-md-none">productos encontrados</h1>
       <div class="container d-flex justify-content-center align-items-center flex-wrap gap-3">
         <?php
         while ($row = $resultado->fetch_assoc()) {
-          $id_producto = $row['id_productos'];
           $producto = $row['nombre_producto'];
           $precio = $row['precio'];
           $descripcion = $row['descripcion'];
           $categoria = $row['categoria'];
         ?>
-              <div class="container mt-5" id="<?php echo $row['$id_producto'];?>">
-        <div class="row">
+          <div class="tarjeta-busqueda p-4">
+            <h3 class="titproducto poppins-regular">
+              <!--Nombre del Producto-->
+              <?php echo htmlspecialchars($row["nombre_producto"]); ?>
+            </h3>
+            <p class="poppins-regular">
+              <!--Descripción  del producto-->
+              <?php echo htmlspecialchars($row["descripcion"]); ?>
+            </p>
+            <h3 class="precio">$
+              <!--Precio del Producto-->
+              <?php echo htmlspecialchars($row["precio"]); ?>
+            </h3>
+            <!-- Botón de añadir al carrito -->
+            <?php
+            if ($row["id_productos"] == $productMessageId && isset($_SESSION['message'])) { ?>
+              <h3 class="mensajecarrito"> <?php echo htmlspecialchars($_SESSION['message']['text']);
+                                          unset($_SESSION['message']);
+                                        }   ?></h3>
+              <!--Boton e input para cambiar cantidad-->
+              <?php
+              if (!isset($_SESSION['permisos'])) {
+                // Si no existe la variable de sesion 'permisos' el boton de añadir redirige al formulario de registro
+              ?>
+                <form method="get" action="session/registro.html" class="d-flex flex-row align-items-center gap-1 mt-3">
+                  <input type="submit" class="btn btn-primary" value="Agregar al carrito">
+                  <input type="number" name="cantidad" class="enviar" min="1" value="1">
+                </form>
+              <?php
+              } elseif ($_SESSION['permisos'] == "usuario") {
+                // Si la variable de sesion 'permisos' es igual a usuario muestra el boton para añadir al carro
+              ?>
+                <form method="get" action="anadircarrito.php" class="d-flex flex-row align-items-center gap-1 mt-3">
+                  <input type="hidden" name="action" value="add">
+                  <?php echo '<input type="hidden" name="id" value="' . $row["id_productos"] . '">'; ?>
+                  <?php echo '<input type="hidden" name="nombre" value="' . htmlspecialchars($row["nombre_producto"]) . '">'; ?>
+                  <input type="submit" class="btn btn-primary" value="Agregar al carrito">
+                  <input type="number" name="cantidad" class="enviar" min="1" value="1">
+                  <?php echo '<input type="hidden" name="precio" value="' . $row["precio"] . '">'; ?>
+                  <input type="hidden" name="buscar" value="<?php echo $buscar; ?>">
+                </form>
+              <?php
+              }
+              // Si el usuario tiene permisos administrador no muestra el boton de añadir al carrito
+              ?>
 
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="titproducto poppins-regular">
-
-                                <!--Nombre Producto-->
-                                <?php echo htmlspecialchars($row["nombre_producto"]); ?></h3>
-                                <h3 class="descproducto poppins-regular">
-                                    <!--Descriopción producto Producto-->
-                                    <?php echo htmlspecialchars($row["descripcion"]); ?></h3>
-
-                                    <h3 class="precio poppins-bold" align="center">$
-
-                                        <!--Precio Producto-->
-                                        <?php echo htmlspecialchars($row["precio"]); ?></h3>
-                                        <!-- Botón de añadir al carrito -->
-
-
-                                        <?php
-                                                if ($row["id_productos"] == $productMessageId && isset($_SESSION['message'])) { ?>
-           <h3 class="mensajecarrito"> <?php echo htmlspecialchars($_SESSION['message']['text']);
-            unset($_SESSION['message']);
-        }   ?></h3>
-                                      <!--Boton e input para cambiar cantidad-->
-                                        <form method="get" action="anadircarrito.php">
-                                            <input type="hidden" name="action" value="add">
-                                            <?php echo '<input type="hidden" name="id" value="'.$row["id_productos"].'">';?>
-                                            <?php echo '<input type="hidden" name="nombre" value="' . htmlspecialchars($row["nombre_producto"]) . '">'; ?>
-                                            <h5 class="poppins-regular">Ingrese cantidad</h5>
-                                            <input type="number" name="cantidad" class="enviar" min="1" value="1">
-                                            <?php echo '<input type="hidden" name="precio" value="' . $row["precio"] . '">'; ?>
-                                            <br>
-
-                                            <input type="submit" class="añadir" value="Agregar al carrito">
-                                        </form>
-
-      </div></div></div></div>
-
-                                  
+          </div>
         <?php
         }
         ?>

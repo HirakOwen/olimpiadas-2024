@@ -17,15 +17,17 @@ if ($resultado->num_rows == 1) {
     $permisos = $row['permisos'];
     // Inicia sesion para guardar las variables
     session_start();
+    // Destruye las variables de sesion anteriores si es que las hay
+    session_unset();
+    // Guarda los datos en variables de sesion
     $_SESSION['nombre'] = $nombre;
     $_SESSION['id_usuario'] = $id_usuario;
     $_SESSION['permisos'] = $permisos;
-    if($_SESSION['desdecarrito']){
+    if ($_SESSION['desdecarrito']) {
         header("Location: ../carrito.php");
-    }else{
-    header("Location: ../index.php");}
+    } else {
+        header("Location: ../index.php");
+    }
 } else {
     header("Location: inicio_sesion.html");
 }
-
-?>

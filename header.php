@@ -32,11 +32,11 @@
     <p onclick="desplegarDesktop()"><img src="imgs/flecha-derecha.png" alt="flecha">Tienda</p>
     <div id="productos-sm">
       <ul class="productos-sm d-none d-md-flex flex-column justify-content-center align-items-center p-3 gap-3">
-        <li><a href="tienda_busqueda.php?filtro=ropa">Ropa Deportiva</a></li>
-        <li><a href="tienda_busqueda.php?filtro=calzado">Calzado Deportivo</a></li>
-        <li><a href="tienda_busqueda.php?filtro=equipo">Equipamiento Deportivo</a></li>
-        <li><a href="tienda_busqueda.php?filtro=nutricion">Nutricion y Suplementos</a></li>
-        <li><a href="tienda_busqueda.php?filtro=fitness">Fitness y Entrenamiento</a></li>
+        <li><a href="tienda_busqueda.php?filtro=Ropa Deportiva">Ropa Deportiva</a></li>
+        <li><a href="tienda_busqueda.php?filtro=Calzado Deportivo">Calzado Deportivo</a></li>
+        <li><a href="tienda_busqueda.php?filtro=Equipamiento Deportivo">Equipamiento Deportivo</a></li>
+        <li><a href="tienda_busqueda.php?filtro=Nutricion y Suplementos">Nutricion y Suplementos</a></li>
+        <li><a href="tienda_busqueda.php?filtro=Fitness y Entrenamiento">Fitness y Entrenamiento</a></li>
       </ul>
     </div>
     <div class="d-flex user-menu-desktop">
@@ -50,7 +50,7 @@
     <?php
     if (isset($_SESSION['nombre']) && isset($_SESSION['id_usuario'])) {
       if ($_SESSION['permisos'] === "admin") {
-       ?>
+    ?>
         <div id="perfil-desktop" class="links-perfil justify-content-center align-items-center flex-column">
           <img src="imgs/user.png" alt="user.png" style="width: 70px;">
           <?php echo "<h3>" . $_SESSION['nombre'] . "</h3>"; ?>
