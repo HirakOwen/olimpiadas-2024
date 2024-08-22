@@ -1,25 +1,56 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
+-- version 4.0.4.2
+-- http://www.phpmyadmin.net
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 21-08-2024 a las 22:29:03
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Servidor: localhost
+-- Tiempo de generación: 22-08-2024 a las 07:47:00
+-- Versión del servidor: 5.6.13
+-- Versión de PHP: 5.4.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Base de datos: `horizondb`
 --
+CREATE DATABASE IF NOT EXISTS `horizondb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `horizondb`;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `detalles_pedido`
+--
+
+CREATE TABLE IF NOT EXISTS `detalles_pedido` (
+  `id_pedido` bigint(11) NOT NULL,
+  `id_productos` int(11) NOT NULL,
+  `cantidad` int(11) NOT NULL,
+  KEY `id_pedido` (`id_pedido`),
+  KEY `id_productos` (`id_productos`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pedidos`
+--
+
+CREATE TABLE IF NOT EXISTS `pedidos` (
+  `id_pedido` bigint(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `total` decimal(10,2) NOT NULL,
+  `estado` varchar(50) NOT NULL DEFAULT 'pendiente',
+  `pago` varchar(100) NOT NULL DEFAULT 'si',
+  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_pedido`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -27,13 +58,14 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `productos`
 --
 
-CREATE TABLE `productos` (
-  `id_productos` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `productos` (
+  `id_productos` int(11) NOT NULL AUTO_INCREMENT,
   `nombre_producto` varchar(100) NOT NULL,
   `precio` int(50) NOT NULL,
   `descripcion` text NOT NULL,
-  `categoria` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `categoria` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_productos`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=16 ;
 
 --
 -- Volcado de datos para la tabla `productos`
@@ -58,8 +90,8 @@ INSERT INTO `productos` (`id_productos`, `nombre_producto`, `precio`, `descripci
 -- Estructura de tabla para la tabla `usuarios`
 --
 
-CREATE TABLE `usuarios` (
-  `id_usuario` int(100) NOT NULL,
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `id_usuario` int(100) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
   `email` text NOT NULL,
   `password` text NOT NULL,
@@ -68,8 +100,9 @@ CREATE TABLE `usuarios` (
   `codigo_postal` int(10) NOT NULL,
   `recibe` text NOT NULL,
   `telefono` varchar(20) NOT NULL,
-  `DNI` int(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `DNI` int(50) NOT NULL,
+  PRIMARY KEY (`id_usuario`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=13 ;
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -77,40 +110,20 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre`, `email`, `password`, `permisos`, `domicilio`, `codigo_postal`, `recibe`, `telefono`, `DNI`) VALUES
 (9, 'fefe', 'fefe@gmail.com', 'fefe', 'usuario', '', 0, '', '', 0),
-(10, '123progamer', '123emailnuevo@gmail.com', '123456', 'usuario', 'jorge 38089', 1234, 'fefardo', '', 0);
+(10, '123progamer', '123emailnuevo@gmail.com', '123456', 'usuario', 'jorge 38089', 1234, 'fefardo', '', 0),
+(11, 'Marcos', 'kuromilinkt@gmail.com', '1234', 'usuario', '', 0, '', '', 0),
+(12, 'Juan', 'juan@jmail.com', 'juan', 'usuario', '', 0, '', '', 0);
 
 --
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `productos`
---
-ALTER TABLE `productos`
-  ADD PRIMARY KEY (`id_productos`);
-
---
--- Indices de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id_usuario`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
+-- Restricciones para tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `productos`
+-- Filtros para la tabla `detalles_pedido`
 --
-ALTER TABLE `productos`
-  MODIFY `id_productos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
--- AUTO_INCREMENT de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-COMMIT;
+ALTER TABLE `detalles_pedido`
+  ADD CONSTRAINT `detalles_pedido_ibfk_1` FOREIGN KEY (`id_pedido`) REFERENCES `pedidos` (`id_pedido`),
+  ADD CONSTRAINT `detalles_pedido_ibfk_2` FOREIGN KEY (`id_productos`) REFERENCES `productos` (`id_productos`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
