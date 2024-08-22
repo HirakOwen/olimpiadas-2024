@@ -139,11 +139,11 @@
 
   <h3 class="text-center fw-bold ">Productos</h3>
   <ul class="d-flex flex-column gap-3 w-100 mt-2">
-    <li><a href="tienda_busqueda.php?filtro=ropa">Ropa Deportiva<img src="imgs/flecha-derecha.png" alt="flecha"></a></li>
-    <li><a href="tienda_busqueda.php?filtro=calzado">Calzado Deportivo<img src="imgs/flecha-derecha.png" alt="flecha"></a></li>
-    <li><a href="tienda_busqueda.php?filtro=equipo">Equipamiento Deportivo<img src="imgs/flecha-derecha.png" alt="flecha"></a></li>
-    <li><a href="tienda_busqueda.php?filtro=nutricion">Nutricion y Suplementos<img src="imgs/flecha-derecha.png" alt="flecha"></a></li>
-    <li><a href="tienda_busqueda.php?filtro=fitness">Fitness y Entrenamiento<img src="imgs/flecha-derecha.png" alt="flecha"></a></li>
+    <li><a href="tienda_busqueda.php?filtro=Ropa Deportiva">Ropa Deportiva<img src="imgs/flecha-derecha.png" alt="flecha"></a></li>
+    <li><a href="tienda_busqueda.php?filtro=Calzado Deportivo">Calzado Deportivo<img src="imgs/flecha-derecha.png" alt="flecha"></a></li>
+    <li><a href="tienda_busqueda.php?filtro=Equipamiento Deportivo">Equipamiento Deportivo<img src="imgs/flecha-derecha.png" alt="flecha"></a></li>
+    <li><a href="tienda_busqueda.php?filtro=Nutricion y Suplementos">Nutricion y Suplementos<img src="imgs/flecha-derecha.png" alt="flecha"></a></li>
+    <li><a href="tienda_busqueda.php?filtro=Fitness y Entrenamiento">Fitness y Entrenamiento<img src="imgs/flecha-derecha.png" alt="flecha"></a></li>
   </ul>
 
   <hr>
