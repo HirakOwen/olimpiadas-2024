@@ -100,7 +100,7 @@ if (!isset($_SESSION['pedidoenviado'])) {
               </div>
 
               <div class="col-4 d-flex align-items-center">
-                <div class="nombre-prod offset-1 poppins-bold"><?php echo htmlspecialchars($item['nombre']); ?></div>
+                <div class="nombre-prod offset-1 poppins-bold text-truncate"><?php echo htmlspecialchars($item['nombre']); ?></div>
 
               </div>
 
@@ -123,16 +123,17 @@ if (!isset($_SESSION['pedidoenviado'])) {
             </div>
 
 
-          <?php } ?>
+          <?php
+          }
+          ?>
 
 
       </div>
 
-      <div class="row">
+      <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center">
 
         <!--Recuadro azul con la lista de precios unitarios-->
-
-        <div class="listaprecios col-md-3 mb-3">
+        <div class="listaprecios w-100">
           <h6 class="poppins-bold responsive-text">Precios Unitarios:</h6>
           <br><br>
           <?php
@@ -152,21 +153,15 @@ if (!isset($_SESSION['pedidoenviado'])) {
                                                                   } ?></h6>
         </div>
 
-
-        <div class="offset-1 col-2">
-
+        <div class="w-100 d-flex justify-content-center align-items-center gap-1 gap-lg-3 mt-4">
           <!--Botón para vaciar el carrito-->
-
-          <a href="vaciarcarrito.php"><button class="cart-clear-button"> Vaciar carrito</button></a>
-
-        </div>
-
-        <div class="offset-1 col-2">
-
+          <div>
+            <a href="vaciarcarrito.php" class="cart-clear-button">Vaciar carrito</a>
+          </div>
           <!--Botón para subir el pedido-->
-
-          <a href="cargarpedido.php"><button class="cart-clear-button">Proceder con el Pago</button></a>
-
+          <div>
+            <a href="cargarpedido.php" class="cart-clear-button">Proceder con el Pago</a>
+          </div>
         </div>
 
       </div>

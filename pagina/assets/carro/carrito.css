@@ -1,132 +1,118 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /*Titulo*/
 
 .cart-header {
-    position: relative;
-    padding: 10px 15px;
-    padding-bottom: 5px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  padding: 10px 15px;
+  padding-bottom: 5px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .cart-header > img {
-    position: relative;
-    left: 50%;
-    max-width: 100%;
-    height: 100%;
-    max-height: 100px;
-    object-fit: cover;
-    transform: translateX(-50%);
+  position: relative;
+  left: 50%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100px;
+  object-fit: cover;
+  transform: translateX(-50%);
 }
 
 .cart-body {
-    margin: auto;
-    margin-top: 40px;
+  margin: auto;
+  margin-top: 40px;
 }
 
 .cart-products-header > p {
-    padding-bottom: 40px;
-    display: inline-block;
-    left: 4.5%;
-    position: relative;
+  padding-bottom: 40px;
+  display: inline-block;
+  left: 4.5%;
+  position: relative;
 }
-
-
 
 .cart-item-remove {
-    height: 30px;
-    width: 30px;
+  height: 30px;
+  width: 30px;
 }
 
-.imagen-borrar{
-    height: 100%;
-    width: 100%;
-
+.imagen-borrar {
+  height: 100%;
+  width: 100%;
 }
-
-
 
 /*Recuadros de cada producto*/
 
-.prodcontainer{
-        border-radius: 3px;
-        background-color: #eee;
-        font-size: 1em;
-        margin-bottom: 15px;
+.prodcontainer {
+  border-radius: 3px;
+  background-color: #eee;
+  font-size: 1em;
+  margin-bottom: 15px;
 }
 
 /*Boton de vaciar carrito*/
 
-
-
 .cart-item {
-    border-radius: 5px;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    white-space: nowrap;
-
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
 }
 
 .cart-clear-button {
-    font-weight: bold;
-    border: black;
-    background-color: transparent;
-    font-size: 20px;
-    border: 2px solid black;
-    padding: 8px 12px;
-    border-radius: 5px;
-    position: relative;
-    left: 9%;
-    transition: 0.2s ease;
-    margin-top: 20px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  border: black;
+  background-color: transparent;
+  font-size: 20px;
+  border: 2px solid black;
+  padding: 8px 12px;
+  border-radius: 5px;   
+  transition: 0.2s ease;
 }
 
 .cart-clear-button:hover {
-    background-color: black;
-    color: whitesmoke;
+  background-color: black;
+  color: whitesmoke;
 }
-
-
 
 /*Para evitar superposicion con el header*/
 
-.containercarrito{
-    padding-top:100px;
+.containercarrito {
+  padding-top: 100px;
 }
 
-@media (max-width: 576px){
-
-.containercarrito{
-    padding-top:110px;
-}
-
+@media (max-width: 576px) {
+  .containercarrito {
+    padding-top: 110px;
+  }
 }
 
 @media (min-width: 576px) {
-.containercarrito{  padding-top:120px;
-}
-
+  .containercarrito {
+    padding-top: 120px;
+  }
 }
 
 /*Input cantidad de productos*/
 
-.input-cantidad{
-        width: 120%;
-    border: none;
-    margin-left: 10%;
-    color: black;
-    text-align: center;
-    background-color: #d8d8d8;
-    border-radius: 10px;
+.input-cantidad {
+  width: 120%;
+  border: none;
+  margin-left: 10%;
+  color: black;
+  text-align: center;
+  background-color: #d8d8d8;
+  border-radius: 10px;
 }
-
 
 /*Tipografías*/
 
@@ -134,90 +120,89 @@
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
-
 }
 
 .poppins-bold {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-style: normal;
-
 }
-
 
 /*Subtitulo*/
 
+.responsive-text {
+  font-size: 1.3rem; /* Tamaño por defecto para pantallas pequeñas */
+}
 
-        .responsive-text {
-            font-size: 1.3rem; /* Tamaño por defecto para pantallas pequeñas */
-        }
+@media (min-width: 576px) {
+  /* Tamaño de fuente para pantallas pequeñas (sm) */
+  .responsive-text {
+    font-size: 1.55rem;
+  }
+}
 
-        @media (min-width: 576px) { /* Tamaño de fuente para pantallas pequeñas (sm) */
-            .responsive-text {
-                font-size: 1.55rem;
-            }
-        }
+@media (min-width: 768px) {
+  /* Tamaño de fuente para pantallas medianas (md) */
+  .responsive-text {
+    font-size: 1.75rem;
+  }
+}
 
-        @media (min-width: 768px) { /* Tamaño de fuente para pantallas medianas (md) */
-            .responsive-text {
-                font-size: 1.75rem;
-            }
-        }
+@media (min-width: 992px) {
+  /* Tamaño de fuente para pantallas grandes (lg) */
+  .responsive-text {
+    font-size: 2rem;
+  }
+}
 
-        @media (min-width: 992px) { /* Tamaño de fuente para pantallas grandes (lg) */
-            .responsive-text {
-                font-size: 2rem;
-            }
-        }
-
-.textocant{
-                color:black;
-
+.textocant {
+  color: black;
 }
 
 /*nombre-prod*/
 
+.nombre-prod {
+  font-size: 14px;
+}
 
-        .nombre-prod{
-            font-size: 14px;
-        }
-
-.listaprecios{
-    min-height: 200px;
-    background-color: #5676ff;
-    color:white;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: left;
+.listaprecios {
+  min-height: 200px;
+  max-width: 500px;
+  background-color: #5676ff;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: left;
 }
 
 @media (min-width: 768px) {
-    .listaprecios {
-        flex: 0 0 auto;
-        width: 33%;
-    }
-
+  .listaprecios {
+    flex: 0 0 auto;
+    width: 33%;
+  }
 }
 
-        .responsive-text {
-            font-size: 0.8rem; /* Tamaño por defecto para pantallas pequeñas */
-        }
+.responsive-text {
+  font-size: 0.8rem; /* Tamaño por defecto para pantallas pequeñas */
+}
 
-        @media (min-width: 576px) { /* Tamaño de fuente para pantallas pequeñas (sm) */
-            .responsive-text {
-                font-size: 0.9rem;
-            }
-        }
+@media (min-width: 576px) {
+  /* Tamaño de fuente para pantallas pequeñas (sm) */
+  .responsive-text {
+    font-size: 0.9rem;
+  }
+}
 
-        @media (min-width: 768px) { /* Tamaño de fuente para pantallas medianas (md) */
-            .responsive-text {
-                font-size: 1rem;
-            }
-        }
+@media (min-width: 768px) {
+  /* Tamaño de fuente para pantallas medianas (md) */
+  .responsive-text {
+    font-size: 1rem;
+  }
+}
 
-        @media (min-width: 992px) { /* Tamaño de fuente para pantallas grandes (lg) */
-            .responsive-text {
-                font-size: 1.2rem;
-            }
-        }
-
+@media (min-width: 992px) {
+  /* Tamaño de fuente para pantallas grandes (lg) */
+  .responsive-text {
+    font-size: 1.2rem;
+  }
+}
