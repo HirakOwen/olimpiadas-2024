@@ -14,12 +14,12 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de datos: `horizondb`
 --
-CREATE DATABASE IF NOT EXISTS `horizondb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+CREATE DATABASE IF NOT EXISTS `horizondb` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE `horizondb`;
 
 -- --------------------------------------------------------
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `detalles_pedido` (
   `cantidad` int(11) NOT NULL,
   KEY `id_pedido` (`id_pedido`),
   KEY `id_productos` (`id_productos`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `detalles_pedido`
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `guardados` (
   `id_productos` int(11) NOT NULL,
   KEY `id_usuario` (`id_usuario`),
   KEY `id_productos` (`id_productos`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `pedidos` (
   `pago` varchar(100) NOT NULL DEFAULT 'si',
   `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_pedido`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `pedidos`
@@ -103,33 +103,33 @@ CREATE TABLE IF NOT EXISTS `productos` (
 --
 
 INSERT INTO `productos` (`id_productos`, `nombre_producto`, `precio`, `descripcion`, `categoria`) VALUES
-(16, 'Camiseta LightFit', 89, 'Esta camiseta estÃ¡ diseÃ±ada pensando en los corredores que buscan comodidad y rendimiento. Fabricada con una mezcla de poliÃ©ster y elastano, es extremadamente ligera y cuenta con tecnologÃ­a de secado rÃ¡pido.', 'Ropa Deportiva'),
-(17, 'Shorts ActiveMove', 74, 'Los shorts ActiveMove son la elecciÃ³n ideal para cualquier tipo de entrenamiento, desde levantamiento de pesas hasta sesiones de cardio. EstÃ¡n confeccionados con una tela elÃ¡stica que se adapta a tu cuerpo, proporcionando el mÃ¡ximo confort.', 'Ropa Deportiva'),
-(18, 'Leggings FlexiFit', 95, 'Los leggings FlexiFit estÃ¡n diseÃ±ados para ofrecerte la mÃ¡xima comodidad y soporte en cada movimiento. Hechos con un tejido suave y elÃ¡stico, se ajustan a la perfecciÃ³n a tu cuerpo, brindando una sensaciÃ³n de segunda piel.', 'Ropa Deportiva'),
-(19, 'Chaqueta Breeze', 99, 'Chaqueta ligera y transpirable ideal para las maÃ±anas frescas o para actividades al aire libre. Confeccionada con un material resistente al viento y al agua.', 'Ropa Deportiva'),
-(20, 'Sudadera SportEase', 99, 'La sudadera SportEase es tu compaÃ±era perfecta para esos dÃ­as frescos donde necesitas un poco mÃ¡s de abrigo sin renunciar a la movilidad. Confeccionada en una mezcla de algodÃ³n y poliÃ©ster.', 'Ropa Deportiva'),
-(21, 'Gorra CoolFit', 59, 'Confeccionada con un tejido ligero y transpirable, esta gorra ofrece ventilaciÃ³n Ã³ptima gracias a sus paneles de malla.', 'Ropa Deportiva'),
-(22, 'Tenis Swift', 99, 'Estos tenis estÃ¡n diseÃ±ados para corredores que buscan ligereza y velocidad. Fabricados con una malla transpirable, ofrecen una ventilaciÃ³n Ã³ptima, mientras que la suela de goma proporciona tracciÃ³n y durabilidad en todo tipo de superficies.', 'Calzado Deportivo'),
-(23, 'Zapatillas SpeedRun', 95, 'Zapatillas de tenis ligeras y cÃ³modas, diseÃ±adas para ofrecer soporte y estabilidad en la cancha. Con suela antideslizante y material transpirable, proporcionan un gran rendimiento durante el juego.', 'Calzado Deportivo'),
-(24, 'Zapatillas FlexStep', 89, 'Estas zapatillas son ideales para el uso diario o sesiones ligeras de entrenamiento. Con un diseÃ±o minimalista y una suela flexible, proporcionan un movimiento natural del pie. El material exterior es suave y transpirable.', 'Calzado Deportivo'),
-(25, 'Botas TrekPro', 99, 'Las botas TrekPro estÃ¡n diseÃ±adas para los aventureros que disfrutan de caminatas y trekking. Hechas con un material resistente al agua y una suela robusta de caucho.', 'Calzado Deportivo'),
-(26, 'Zapatos TrailMaster', 85, 'Calzado resistente para senderismo y actividades al aire libre. DiseÃ±ado con una suela de alta tracciÃ³n y protecciÃ³n adicional en la puntera, ideal para terrenos difÃ­ciles y largos recorridos.', 'Calzado Deportivo'),
-(27, 'Chanclas ComfortWalk', 39, 'Las chanclas ComfortWalk son la opciÃ³n perfecta para despuÃ©s de un largo dÃ­a de entrenamiento o para descansar en casa.', 'Calzado Deportivo'),
-(28, 'Bolsa GymCarry', 95, 'Bolsa deportiva multifuncional con amplio espacio de almacenamiento. Cuenta con compartimentos separados para zapatos y ropa hÃºmeda, ademÃ¡s de un bolsillo interno para objetos de valor.', 'Equipamiento Deportivo'),
-(29, 'Toalla QuickDry', 49, 'Toalla de microfibra ultra absorbente y de secado rÃ¡pido. Ligera y compacta, es perfecta para llevar al gimnasio, a la playa o de viaje. Viene con un prÃ¡ctico estuche para facilitar su transporte.', 'Equipamiento Deportivo'),
-(30, 'Botella HydroMax', 39, 'Botella de agua reutilizable con capacidad de 1 litro, fabricada en material libre de BPA. Cuenta con un diseÃ±o ergonÃ³mico y tapa a prueba de fugas, ideal para mantenerte hidratado durante tus entrenamientos.', 'Equipamiento Deportivo'),
-(31, 'Pulsera FitTrack', 89, 'Pulsera inteligente que monitorea tu actividad diaria, calidad de sueÃ±o y notificaciones. Su diseÃ±o minimalista y baterÃ­a de larga duraciÃ³n la hacen ideal para usarla todo el dÃ­a.', 'Equipamiento Deportivo'),
-(32, 'Soporte SportMount', 59, 'Soporte ajustable para smartphone diseÃ±ado para fijarse en bicicletas, cintas de correr o equipos de gimnasio.', 'Equipamiento Deportivo'),
-(33, 'ProteÃ­na Whey Ultra', 99, 'Suplemento de proteÃ­na de suero de alta calidad, ideal para la recuperaciÃ³n muscular y el crecimiento. Cada porciÃ³n proporciona 25 gramos de proteÃ­na pura, sin azÃºcares aÃ±adidos ni grasas trans.', 'Nutricion y Suplementos'),
-(34, 'MultivitamÃ­nico DailyBoost', 79, 'Complejo multivitamÃ­nico diseÃ±ado para cubrir las necesidades diarias de vitaminas y minerales esenciales. Incluye vitaminas A, C, D, E, y minerales como zinc, hierro y calcio. Ideal para mantener la energÃ­a y el bienestar general.', 'Nutricion y Suplementos'),
-(35, 'Creatina PureStrength', 74, 'Suplemento de creatina monohidratada pura para mejorar el rendimiento en entrenamientos de alta intensidad. Sin aditivos ni rellenos, es fÃ¡cil de mezclar en agua o jugo.', 'Nutricion y Suplementos'),
-(36, 'Fibra Natural Digest', 59, 'Suplemento de fibra natural a base de psyllium y cÃ¡scara de psyllium. Ayuda a mejorar la digestiÃ³n y mantener la regularidad intestinal. Ideal para aÃ±adir a batidos, yogures o agua, proporcionando 7 g de fibra por porciÃ³n.', 'Nutricion y Suplementos'),
-(37, 'L-Carnitina PowerBurn', 94, 'Suplemento de L-Carnitina lÃ­quida, diseÃ±ado para apoyar la quema de grasa y mejorar la energÃ­a durante los entrenamientos. Cada porciÃ³n proporciona 1500 mg de L-Carnitina pura, con un delicioso sabor a limÃ³n.', 'Nutricion y Suplementos'),
-(38, 'Pre-entreno EnergyBlast', 94, 'Suplemento en polvo formulado para aumentar la energÃ­a y la concentraciÃ³n. Contiene una mezcla de cafeÃ­na y arginina para mejorar el rendimiento y la resistencia. Disponible en sabores como cereza y vainilla. (por envase de 250 g)', 'Nutricion y Suplementos'),
-(39, 'Bandas Flexi', 59, 'Set de bandas elÃ¡sticas de resistencia con diferentes niveles de tensiÃ³n, ideales para ejercicios de estiramiento, tonificaciÃ³n y rehabilitaciÃ³n. Incluye una guÃ­a de ejercicios. (set de 5 bandas)', 'Fitness y entrenamiento'),
-(40, 'Rueda ZoneCore', 69, 'Rueda de abdominales con empuÃ±aduras ergonÃ³micas para trabajar el core y mejorar la estabilidad. Ideal para ejercicios de abdominales, espalda y brazos.', 'Fitness y entrenamiento'),
-(41, 'Mancuernas Forge', 89, 'Mancuernas ajustables con agarre antideslizante, ideales para una variedad de ejercicios de fuerza. DiseÃ±adas para proporcionar un entrenamiento eficaz en casa o en el gimnasio.', 'Fitness y entrenamiento'),
-(42, 'Colchoneta FitHome', 79, 'Colchoneta de ejercicios con superficie antideslizante, ideal para yoga, pilates y estiramientos. Su grosor proporciona comodidad y soporte durante tus entrenamientos.', 'Fitness y entrenamiento');
+(16, 'Camiseta LightFit', 89, 'Esta camiseta está diseñada pensando en los corredores que buscan comodidad y rendimiento. Fabricada con una mezcla de poliéster y elastano, es extremadamente ligera y cuenta con tecnología de secado rápido.', 'Ropa Deportiva'),
+(17, 'Shorts ActiveMove', 74, 'Los shorts ActiveMove son la elección ideal para cualquier tipo de entrenamiento, desde levantamiento de pesas hasta sesiones de cardio. Están confeccionados con una tela elástica que se adapta a tu cuerpo, proporcionando el máximo confort.', 'Ropa Deportiva'),
+(18, 'Leggings FlexiFit', 95, 'Los leggings FlexiFit están diseñados para ofrecerte la máxima comodidad y soporte en cada movimiento. Hechos con un tejido suave y elástico, se ajustan a la perfección a tu cuerpo, brindando una sensación de segunda piel.', 'Ropa Deportiva'),
+(19, 'Chaqueta Breeze', 99, 'Chaqueta ligera y transpirable ideal para las mañanas frescas o para actividades al aire libre. Confeccionada con un material resistente al viento y al agua.', 'Ropa Deportiva'),
+(20, 'Sudadera SportEase', 99, 'La sudadera SportEase es tu compañera perfecta para esos días frescos donde necesitas un poco más de abrigo sin renunciar a la movilidad. Confeccionada en una mezcla de algodón y poliéster.', 'Ropa Deportiva'),
+(21, 'Gorra CoolFit', 59, 'Confeccionada con un tejido ligero y transpirable, esta gorra ofrece ventilación óptima gracias a sus paneles de malla.', 'Ropa Deportiva'),
+(22, 'Tenis Swift', 99, 'Estos tenis están diseñados para corredores que buscan ligereza y velocidad. Fabricados con una malla transpirable, ofrecen una ventilación óptima, mientras que la suela de goma proporciona tracción y durabilidad en todo tipo de superficies.', 'Calzado Deportivo'),
+(23, 'Zapatillas SpeedRun', 95, 'Zapatillas de tenis ligeras y cómodas, diseñadas para ofrecer soporte y estabilidad en la cancha. Con suela antideslizante y material transpirable, proporcionan un gran rendimiento durante el juego.', 'Calzado Deportivo'),
+(24, 'Zapatillas FlexStep', 89, 'Estas zapatillas son ideales para el uso diario o sesiones ligeras de entrenamiento. Con un diseño minimalista y una suela flexible, proporcionan un movimiento natural del pie. El material exterior es suave y transpirable.', 'Calzado Deportivo'),
+(25, 'Botas TrekPro', 99, 'Las botas TrekPro están diseñadas para los aventureros que disfrutan de caminatas y trekking. Hechas con un material resistente al agua y una suela robusta de caucho.', 'Calzado Deportivo'),
+(26, 'Zapatos TrailMaster', 85, 'Calzado resistente para senderismo y actividades al aire libre. Diseñado con una suela de alta tracción y protección adicional en la puntera, ideal para terrenos difíciles y largos recorridos.', 'Calzado Deportivo'),
+(27, 'Chanclas ComfortWalk', 39, 'Las chanclas ComfortWalk son la opción perfecta para después de un largo día de entrenamiento o para descansar en casa.', 'Calzado Deportivo'),
+(28, 'Bolsa GymCarry', 95, 'Bolsa deportiva multifuncional con amplio espacio de almacenamiento. Cuenta con compartimentos separados para zapatos y ropa húmeda, además de un bolsillo interno para objetos de valor.', 'Equipamiento Deportivo'),
+(29, 'Toalla QuickDry', 49, 'Toalla de microfibra ultra absorbente y de secado rápido. Ligera y compacta, es perfecta para llevar al gimnasio, a la playa o de viaje. Viene con un práctico estuche para facilitar su transporte.', 'Equipamiento Deportivo'),
+(30, 'Botella HydroMax', 39, 'Botella de agua reutilizable con capacidad de 1 litro, fabricada en material libre de BPA. Cuenta con un diseño ergonómico y tapa a prueba de fugas, ideal para mantenerte hidratado durante tus entrenamientos.', 'Equipamiento Deportivo'),
+(31, 'Pulsera FitTrack', 89, 'Pulsera inteligente que monitorea tu actividad diaria, calidad de sueño y notificaciones. Su diseño minimalista y batería de larga duración la hacen ideal para usarla todo el día.', 'Equipamiento Deportivo'),
+(32, 'Soporte SportMount', 59, 'Soporte ajustable para smartphone diseñado para fijarse en bicicletas, cintas de correr o equipos de gimnasio.', 'Equipamiento Deportivo'),
+(33, 'Proteína Whey Ultra', 99, 'Suplemento de proteína de suero de alta calidad, ideal para la recuperación muscular y el crecimiento. Cada porción proporciona 25 gramos de proteína pura, sin azúcares añadidos ni grasas trans.', 'Nutricion y Suplementos'),
+(34, 'Multivitamínico DailyBoost', 79, 'Complejo multivitamínico diseñado para cubrir las necesidades diarias de vitaminas y minerales esenciales. Incluye vitaminas A, C, D, E, y minerales como zinc, hierro y calcio. Ideal para mantener la energía y el bienestar general.', 'Nutricion y Suplementos'),
+(35, 'Barra Energética PowerBar', 39, 'Deliciosa barra energética con una mezcla de carbohidratos de rápida absorción y proteínas. Perfecta para consumir antes o después del ejercicio. Disponible en varios sabores.', 'Nutricion y Suplementos'),
+(36, 'Batido de Proteína ChocoFit', 59, 'Batido de proteína listo para tomar, con un delicioso sabor a chocolate. Cada botella proporciona 20 gramos de proteína de alta calidad y es bajo en calorías. Ideal para consumir después de entrenar o como snack saludable.', 'Nutricion y Suplementos'),
+(37, 'Aminoácidos BCAA', 79, 'Suplemento de aminoácidos de cadena ramificada (BCAA) que ayuda en la recuperación muscular y la reducción de la fatiga durante el ejercicio. Cada porción contiene una proporción óptima de leucina, isoleucina y valina.', 'Nutricion y Suplementos'),
+(38, 'Creatina MaxPower', 89, 'Suplemento de creatina monohidratada, diseñado para mejorar el rendimiento y la fuerza en entrenamientos de alta intensidad. Cada porción proporciona 5 gramos de creatina pura.', 'Nutricion y Suplementos'),
+(39, 'Glutamina PureRecovery', 59, 'Suplemento de glutamina que ayuda en la recuperación muscular y fortalece el sistema inmunológico. Ideal para consumir después de entrenar o antes de dormir.', 'Nutricion y Suplementos'),
+(40, 'Omega-3 FishOil', 79, 'Suplemento de aceite de pescado rico en ácidos grasos omega-3. Ayuda a mejorar la salud cardiovascular, reducir la inflamación y mantener la función cerebral. Cada cápsula proporciona una alta concentración de EPA y DHA.', 'Nutricion y Suplementos'),
+(41, 'Termogénico FatBurn', 99, 'Suplemento termogénico que ayuda a aumentar el metabolismo y promover la quema de grasa. Formulado con ingredientes naturales como cafeína, té verde y extracto de guaraná.', 'Nutricion y Suplementos'),
+(42, 'Pre-Entrenamiento EnergyX', 79, 'Suplemento pre-entrenamiento diseñado para mejorar la energía, concentración y resistencia durante el ejercicio. Contiene una mezcla de cafeína, beta-alanina y L-citrulina.', 'Nutricion y Suplementos');
 
 -- --------------------------------------------------------
 
