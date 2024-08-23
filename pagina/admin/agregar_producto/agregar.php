@@ -25,6 +25,7 @@ if ($_SESSION['permisos'] != "admin") {
   <link rel="stylesheet" href="../admin.css" />
   <link rel="stylesheet" href="agregar.css">
   <title>Agregar producto</title>
+  <link rel="icon" href="../../recursos/logosimple.png">
 </head>
 
 <body class="d-flex justify-content-center align-items-center flex-column h-100 w-100">
@@ -33,7 +34,7 @@ if ($_SESSION['permisos'] != "admin") {
     <h3 class="text-white">Crear producto</h3>
     <input type="text" name="producto" id="producto" placeholder="Nombre del producto..." required>
     <input type="number" name="precio" id="precio" placeholder="Precio del producto..." required>
-    <textarea name="descripcion" id="descripcion" cols="30" rows="10" placeholder="Descripcion..." required></textarea>
+    <textarea name="descripcion" id="descripcion" maxleght="150" cols="30" rows="10" placeholder="Descripcion..." required></textarea>
     <select name="categoria" required>
       <option value="Ropa Deportiva" selected>Ropa Deportiva</option>
       <option value="Calzado Deportivo">Calzado Deportivo</option>
@@ -41,7 +42,7 @@ if ($_SESSION['permisos'] != "admin") {
       <option value="Nutricion y Suplementos">Nutricion y Suplementos</option>
       <option value="Fitness y entrenamiento">Fitness y entrenamiento</option>
     </select>
-    <button class="btn btn-primary">Crear noticia</button>
+    <button class="btn btn-primary">Crear Producto</button>
   </form>
 
 

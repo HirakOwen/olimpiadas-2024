@@ -20,7 +20,8 @@ if ($_SESSION['permisos'] != "admin") {
     <link href="https://fonts.cdnfonts.com/css/codec-pro" rel="stylesheet" />
     <!-- CSS Links-->
     <link rel="stylesheet" href="pedidos_admin.css">
-    <title>Mis pedidos</title>
+    <title>Ver pedidos</title>
+    <link rel="icon" href="../../recursos/logosimple.png">
 </head>
 
 <body>

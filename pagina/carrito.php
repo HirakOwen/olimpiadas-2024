@@ -1,12 +1,16 @@
 <?php
 session_start();
-if (!isset($_SESSION['nombre']) || !isset($_SESSION['id_usuario'])) {
-  header("Location: index.php");
-} elseif (isset($_SESSION['permisos'])) {
+if (isset($_SESSION['permisos'])) {
   if ($_SESSION['permisos'] === "admin") {
     header("Location: index.php");
   }
 }
+$msj="";
+if (!isset($_SESSION['id_usuario'])) {
+  $msj ="Debe iniciar sesion para realizar una compra!";
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +46,8 @@ if (!isset($_SESSION['nombre']) || !isset($_SESSION['id_usuario'])) {
   <script src="script.js"></script>
 
 
-  <title>Inicio</title>
+  <title>Carrito</title>
+  <link rel="icon" href="recursos/logosimple.png">
 </head>
 
 <?php include("../header.php");
@@ -71,22 +76,22 @@ if (!isset($_SESSION['pedidoenviado'])) {
   <section class="cart-body row col-11 offset-1 d-flex">
 
     <div class="cart-products-header">
-      <p class="responsive-text poppins-bold">Productos en el carrito:</p>
+      <p class="responsive-text poppins-bold">Productos en el carrito:</span></p>
+      <p class="responsive-text poppins-bold"><?php echo $msj;?></span></p>
+
 
       <div class="col-12">
 
         <?php // Verificar si el carrito está vacío
         if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) {
-          echo "<p>El carrito está vacío.</p>";
-          echo $_SESSION['pedidoenviado'];
+          echo "<p class='responsive-text poppins-bold'>".$_SESSION['pedidoenviado']."</p>";
+          echo "<h1 class='text-center poppins-bold' style='color:#ddd;margin-top:50px;margin-bottom:100px;'>El carrito está vacío.</p>";
+
           unset($_SESSION['pedidoenviado']);
           exit;
         } else {
 
-
-          foreach ($_SESSION['cart'] as $index => $item) {
-        ?>
-
+          foreach ($_SESSION['cart'] as $index => $item) {?>
 
             <div class="row col-12 prodcontainer p-4 rounded">
 
@@ -134,8 +139,9 @@ if (!isset($_SESSION['pedidoenviado'])) {
 
         <!--Recuadro azul con la lista de precios unitarios-->
         <div class="listaprecios w-100">
+          <br>
           <h6 class="poppins-bold responsive-text">Precios Unitarios:</h6>
-          <br><br>
+          <br>
           <?php
           foreach ($_SESSION['cart'] as $index => $item) {
             $itemTotal = $item['precio'] * $item['cantidad'];
@@ -149,8 +155,7 @@ if (!isset($_SESSION['pedidoenviado'])) {
           // Al finalizar el bucle, muestra el total
           $_SESSION['total'] = $total;
           ?>
-          <h6 class="poppins-bold responsive-text">Total a pagar: $<?php echo number_format($total, 2);
-                                                                  } ?></h6>
+          <h6 class="poppins-bold responsive-text">Total a pagar: $<?php echo number_format($total, 2);} ?></h6>
         </div>
 
         <div class="w-100 d-flex justify-content-center align-items-center gap-1 gap-lg-3 mt-4">
@@ -171,6 +176,36 @@ if (!isset($_SESSION['pedidoenviado'])) {
 
 </section>
 </div>
+
+        <!--Footer-->
+
+<footer class="w-100 mt-5">
+      <div class="footer-superior d-flex justify-content-around align-items-center flex-row">
+        <div class="mt-3">
+          <ul class="d-md-flex justify-content-center align-items-center flex-column">
+            <li><h3><b>Ayuda</b></h3>
+            <li><a href="faq.php">Politicas de Reembolso</a></li>
+            <li><a href="tyc.php">Terminos y condiciones</a></li>
+            <li><a href="faq.php">Formas de envio</a></li>
+            <li><a href="faq.php">Medios de pago</a></li>
+            <li><a href="faq.php">Preguntas Frecuentes</a></li>
+
+          </ul>
+        </div>
+        <div class="text-end mt-3 me-4">
+          <ul class="d-md-flex justify-content-center align-items-center flex-column">
+            <li><h3><b>Contacto</b></h3></li>
+            <li><img src="imgs/footer/llamar.png" alt="telefono.png">+54 9 11 5016-1658</li>
+            <li><img src="imgs/footer/correo.png" alt="correo.png">info@horizon.com</li>
+            <li><img src="imgs/footer/pasador-de-ubicacion.png" alt="ubicacion.png">Av. Hipolito Yrigoyen 799 (1878)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-inferior text-white text-center p-3">
+        <b>Copyright © 2024 Horizon Sports. Todos los derechos reservados.</b>
+        <p>El uso de este sitio web implica la aceptación de los Términos y Condiciones y de las Políticas de Privacidad de Horizon Sports.</p>
+      </div>
+    </footer>
 
 </body>
 

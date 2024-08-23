@@ -115,6 +115,7 @@ footer {
 	border-radius: 10px;
 	max-height: 70px;
 	margin-bottom: 20px;
+    padding:10px;
 }
 
 @media (max-width: 576px) {
@@ -126,25 +127,38 @@ footer {
 
 }
 
-.cruz{
-	width: 5%;
-	margin-left: 2.5%;
-	height: auto;
-}
 
-@media (min-width: 992px) {
-.cruz{
-	width: 3%;
-	height: auto;
-}
 
-}
+/*Responsive del simbolo de la cruz*/
+
 
 @media (max-width: 576px) {
-.cruz{
-	margin-left: 4%;
+    .cruz{
+        width: 7%;
+        margin-left: 0%;
+    }
+    }
+
+ @media (min-width: 576px) {
+        .cruz{
+            width: 6%;
+            margin-left: 1%;
+        }
 }
+    
+ @media (min-width: 756px) {
+    .cruz{
+        width: 5%;
+        margin-left: 2%;
+    }
 }
+    @media (min-width: 1292px) {
+        .cruz{
+            width: 3%;
+            margin-left: 1%;
+        }
+        }
+
 
 
 .precio{
@@ -159,22 +173,32 @@ margin-top: 20px;
 
 @media (max-width: 576px) {
 .nombreprod{
-	font-size: 1em;
+	font-size: 0.7em;
 }
 
 }
 
 @media (min-width: 576px) {
 .nombreprod{
-	font-size: 1.2em;
+	font-size: 0.8em;
 }
 
 }
 
 @media (min-width: 756px) {
 .nombreprod{
-	font-size: 1.5em;
+	font-size: 1em;
 
 }
 
 }
+
+.espacio{
+    padding-top: 100px;
+  }
+  
+  @media (max-width:576px){
+    .espacio{
+      padding-top: 125px;
+    }
+  }

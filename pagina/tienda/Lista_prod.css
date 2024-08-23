@@ -1,4 +1,3 @@
-/* Nose, lo hizo el pelado */
 
 .card {
   border: 1px solid #ddd;
@@ -196,4 +195,24 @@
   margin: 0;
   opacity: 1;
   display: block;
+}
+
+.imguardado{
+  width:10%;
+}
+
+@media(max-width:576px){
+  .imguardado{
+    width:15%;
+  }
+}
+
+.espacio{
+  padding-top: 100px;
+}
+
+@media (max-width:576px){
+  .espacio{
+    padding-top: 125px;
+  }
 }

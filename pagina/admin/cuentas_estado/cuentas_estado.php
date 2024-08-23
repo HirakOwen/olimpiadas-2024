@@ -24,6 +24,8 @@ if ($_SESSION['permisos'] != "admin") {
     <!-- CSS Links-->
     <link rel="stylesheet" href="../admin.css" />
     <link rel="stylesheet" href="cuentas.css">
+    <title>Ver estados de cuentas</title>
+    <link rel="icon" href="../../recursos/logosimple.png">
 </head>
 
 <body>

@@ -90,8 +90,7 @@ body {
 
 .h1-resultados {
     height: 110px;
-    color: white;
-    margin: 0;
+    color: rgb(0, 0, 0);
 }
 .tarjeta-busqueda {
     background: #eeeeee;

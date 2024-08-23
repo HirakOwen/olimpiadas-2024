@@ -180,3 +180,14 @@ footer {
 .footer-inferior p, .footer-inferior b {
     font-size: 15px;
 }
+
+
+.espacio{
+  padding-top: 100px;
+}
+
+@media (max-width:576px){
+  .espacio{
+    padding-top: 125px;
+  }
+}

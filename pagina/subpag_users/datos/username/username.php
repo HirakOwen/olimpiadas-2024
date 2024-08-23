@@ -31,6 +31,8 @@ if (isset($_GET['id'])) {
     <!-- CSS Links-->
     <link rel="stylesheet" href="../datos.css">
     <title>Nombre de usuario</title>
+    <link rel="shorcut icon" href="../../../recursos/logosimple.png">
+
 </head>
 
 <body class="d-flex justify-content-center align-items-center flex-column h-100 w-100">

@@ -21,6 +21,7 @@ session_start();
   <link rel="stylesheet" href="index_css/style.css">
 
   <title>Inicio</title>
+  <link rel="icon" href="recursos/logosimple.png">
 </head>
 
 <body id="body" style="max-width: 100vW">
@@ -47,9 +48,13 @@ session_start();
 
   </div>
 
+<!--Subtitulo-->
 
   <div class="post-slider d-flex flex-column w-100 gap-3">
     <h2 class="text-center mt-4 subtitle">¿Que ofrecemos?</h2>
+
+<!--Recuadros-->
+
     <div class="d-flex justify-content-center align-items-center text-center row gap-4">
 
       <div class="tarjeta col-auto d-flex justify-content-center align-items-center text-center flex-column p-2">
@@ -85,35 +90,34 @@ session_start();
     </div>
 
   </div>
-
+<!--Footer-->
   <footer class="w-100 mt-5">
-    <div class="footer-superior d-flex justify-content-around align-items-center flex-row">
-      <div class="mt-3">
-        <ul class="d-md-flex justify-content-center align-items-center flex-column">
-          <li>
-            <h3><b>Ayuda</b></h3>
-          <li><a href="faq.php">Politicas de Reembolso</a></li>
-          <li><a href="tyc.php">Terminos y condiciones</a></li>
-          <li><a href="faq.php">Formas de envio</a></li>
-          <li><a href="faq.php">Medios de pago</a></li>
-        </ul>
+      <div class="footer-superior d-flex justify-content-around align-items-center flex-row">
+        <div class="mt-3">
+          <ul class="d-md-flex justify-content-center align-items-center flex-column">
+            <li><h3><b>Ayuda</b></h3>
+            <li><a href="faq.php">Politicas de Reembolso</a></li>
+            <li><a href="tyc.php">Terminos y condiciones</a></li>
+            <li><a href="faq.php">Formas de envio</a></li>
+            <li><a href="faq.php">Medios de pago</a></li>
+            <li><a href="faq.php">Preguntas Frecuentes</a></li>
+
+          </ul>
+        </div>
+        <div class="text-end mt-3 me-4">
+          <ul class="d-md-flex justify-content-center align-items-center flex-column">
+            <li><h3><b>Contacto</b></h3></li>
+            <li><img src="imgs/footer/llamar.png" alt="telefono.png">+54 9 11 5016-1658</li>
+            <li><img src="imgs/footer/correo.png" alt="correo.png">info@horizon.com</li>
+            <li><img src="imgs/footer/pasador-de-ubicacion.png" alt="ubicacion.png">Av. Hipolito Yrigoyen 799 (1878)</li>
+          </ul>
+        </div>
       </div>
-      <div class="text-end mt-3 me-4">
-        <ul class="d-md-flex justify-content-center align-items-center flex-column">
-          <li>
-            <h3><b>Contacto</b></h3>
-          </li>
-          <li><img src="imgs/footer/llamar.png" alt="telefono.png">+54 9 11 5016-1658</li>
-          <li><img src="imgs/footer/correo.png" alt="correo.png">info@horizon.com</li>
-          <li><img src="imgs/footer/pasador-de-ubicacion.png" alt="ubicacion.png">Av. Hipolito Yrigoyen 799 (1878)</li>
-        </ul>
+      <div class="footer-inferior text-white text-center p-3">
+        <b>Copyright © 2024 Horizon Sports. Todos los derechos reservados.</b>
+        <p>El uso de este sitio web implica la aceptación de los Términos y Condiciones y de las Políticas de Privacidad de Horizon Sports.</p>
       </div>
-    </div>
-    <div class="footer-inferior text-white text-center p-3">
-      <b>Copyright © 2024 Horizon Sports. Todos los derechos reservados.</b>
-      <p>El uso de este sitio web implica la aceptación de los Términos y Condiciones y de las Políticas de Privacidad de Horizon Sports.</p>
-    </div>
-  </footer>
+    </footer>
   <script src="script.js"></script>
 </body>
 

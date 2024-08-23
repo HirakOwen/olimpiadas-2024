@@ -1,6 +1,6 @@
 <?php
 session_start();
-unset($_SESSION['cart']);
-header("Location: carrito.php"); // Redirigir a la página del carrito
+unset($_SESSION['cart']); //reinicio del carrito
+header("Location: carrito.php"); // Redirige a la página del carrito
 exit;
 ?>

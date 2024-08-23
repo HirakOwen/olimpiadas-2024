@@ -80,5 +80,5 @@ foreach ($_SESSION['cart'] as $item) {
 unset($_SESSION['cart']);
 unset($_SESSION['total']);
 
-header('location:carrito.php')
+header('location:carrito.php');
 ?>

@@ -42,7 +42,7 @@
     <div class="d-flex user-menu-desktop">
       <ul class="d-flex justify-content-center align-items-center">
         <li><a href="carrito.php"><img src="imgs/carrito-de-compras.png" alt="carrito.png"></a></li>
-        <li><a href="#"><img src="imgs/guardado.png" alt="guardado.png"></a></li>
+        <li><a href="favoritos.php"><img src="imgs/guardado.png" alt="guardado.png"></a></li>
         <li onclick="desplegarPerfil()"><img src="imgs/user.png" alt="inicio.png"></li>
       </ul>
     </div>
@@ -151,6 +151,7 @@
   <ul class="user_menu row d-flex gap-3 mt-2">
     <li><a href="index.php"><img src="imgs/casa.png" alt="inicio.png">Inicio</a></li>
     <li><a href="carrito.php"><img src="imgs/carrito-de-compras.png" alt="carrito.png">Carrito de compras</a></a></li>
+    <li><a href="favoritos.php"><img src="imgs/guardado.png" alt="carrito.png">Favoritos</a></a></li>
     <li><a href="../pagina/tyc.php"><img src="imgs/terminos-y-condiciones.png" alt="terminos.png">Terminos y Condiciones</a></a></li>
     <li><a href="faq.php"><img src="imgs/informacion.png" alt="faq.png">Preguntas frecuentes</a></a></li>
   </ul>

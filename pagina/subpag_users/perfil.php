@@ -46,6 +46,7 @@ if ($resultado->num_rows == 1) {
   <!-- CSS Links-->
   <link rel="stylesheet" href="perfil.css" />
   <title>Perfil</title>
+  <link rel="shorcut icon" href="../recursos/logosimple.png">
 </head>
 
 <body>
@@ -100,7 +101,7 @@ if ($resultado->num_rows == 1) {
           <img src="../imgs/favorito-amarillo.png" alt="ubi" />Mis guardados
         </h3>
         <p>
-          Podes ver los productos que guardaste haciendo click <a href="#">ACA</a>
+          Podes ver los productos que guardaste haciendo click <a href="../favoritos.php">ACA</a>
         </p>
       </div>
     </div>

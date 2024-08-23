@@ -8,7 +8,7 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['id_usuario'])) {
     }
 }
 
-// Obtener los parámetros de la URL
+// Obtener los valores del pedido desde el boton de pago
 $action = isset($_GET['action']) ? $_GET['action'] : '';
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 $nombre = isset($_GET['nombre']) ? $_GET['nombre'] : '';

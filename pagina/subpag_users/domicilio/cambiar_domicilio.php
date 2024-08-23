@@ -31,6 +31,8 @@ if (isset($_GET['id'])) {
     <!-- CSS Links-->
     <link rel="stylesheet" href="cambiar.css">
     <title>Cambiar domicilio</title>
+    <link rel="shorcut icon" href="../../recursos/logosimple.png">
+
 </head>
 
 <body class="d-flex justify-content-center flex-column h-100 w-100">

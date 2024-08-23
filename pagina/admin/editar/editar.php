@@ -24,7 +24,8 @@ if ($_SESSION['permisos'] != "admin") {
   <!-- CSS Links-->
   <link rel="stylesheet" href="../admin.css" />
   <link rel="stylesheet" href="editar.css">
-  <title>Agregar producto</title>
+  <title>Editar producto</title>
+  <link rel="icon" href="../../recursos/logosimple.png">
 </head>
 
 <body class="d-flex justify-content-center align-items-center flex-column h-100 w-100">
@@ -49,7 +50,7 @@ if ($_SESSION['permisos'] != "admin") {
     <h3 class="text-white">Actualizar producto</h3>
     <input type="text" name="producto" id="producto" placeholder="Nombre del producto..." value="<?php echo $producto ?>" required>
     <input type="number" name="precio" id="precio" placeholder="Precio del producto..." value="<?php echo $precio ?>" required>
-    <textarea name="descripcion" id="descripcion" cols="30" rows="10" placeholder="Descripcion..." required><?php echo $descripcion ?></textarea>
+    <textarea name="descripcion" id="descripcion" maxleght="154" cols="30" rows="10" placeholder="Descripcion..." required><?php echo $descripcion ?></textarea>
     <select name="categoria" required>
       <option value="Ropa Deportiva" <?php echo ($categoria === 'Ropa Deportiva') ? 'selected' : ''; ?>>Ropa Deportiva</option>
       <option value="Calzado Deportivo" <?php echo ($categoria === 'Calzado Deportivo') ? 'selected' : ''; ?>>Calzado Deportivo</option>

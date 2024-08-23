@@ -1,9 +1,27 @@
 
 <?php 
 session_start();
+
+include('../conexion.php');
+
+//Para redirigir al index los usuarios que no son cuentas admin
 if ($_SESSION['permisos'] != "admin") {
     header("Location: ../index.php");
   } 
+
+  //Para redirigir al producto con el buscador
+  if(isset($_GET['id'])){
+    $id = $_GET['id'];
+    $_GET = NULL;
+    $sql = 'SELECT id_productos FROM productos WHERE id_productos = '.$id;
+    $resultado = $conn->query($sql);
+
+    if ($resultado->num_rows > 0) {  
+    header('Location: pagina_admin.php#'.$id);
+  }
+  else{
+    header('Location: pagina_admin.php#');
+  }}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -25,6 +43,7 @@ if ($_SESSION['permisos'] != "admin") {
     <!-- CSS Links-->
     <link rel="stylesheet" href="admin.css" />
     <title>Pagina Administrador</title>
+    <link rel="icon" href="../recursos/logosimple.png">
 </head>
 <body class="w-100 h-100 d-flex justify-content-center align-items-center flex-column">
     <!-- Header -->
@@ -32,12 +51,12 @@ if ($_SESSION['permisos'] != "admin") {
       class="d-flex justify-content-center align-items-center flex-column w-100 bg-black p-3 flex-lg-row justify-content-lg-around"
     >
       <img src="../imgs/horizonsports.png" alt="horizonsports" />
-      <form
-        action="#"
+<form
+        action="pagina_admin.php"
         method="GET"
         class="d-flex justify-content-center align-items-center flex-row mb-2 rounded-1 w-100"
       >
-        <input type="search" name="buscar" placeholder="Buscar productos..." />
+        <input type="number" name="id" placeholder="Buscar productos por id..." />
         <button class="rounded-5">
           <img src="../imgs/lupa.png" alt="lupa.png" class="p-0 m-0" />
         </button>
@@ -72,7 +91,7 @@ if ($_SESSION['permisos'] != "admin") {
         $descripcion = $row['descripcion'];
         $categoria = $row['categoria'];
         ?>
-        <div class="d-flex justify-content-center align-items-center flex-column producto-div p-2 rounded-1">
+        <div class="d-flex justify-content-center align-items-center flex-column producto-div p-2 rounded-1" id="<?php echo $row['id_productos'];?>">
             <div class="d-flex flex-column w-100">
                 <h4>ID: <?php echo $id_producto; ?></h4>
                 <h1><?php echo $producto; ?></h1>

@@ -24,6 +24,7 @@ $id_pedido = $_GET['id_pedido'];
     <!-- CSS Links-->
     <link rel="stylesheet" href="estado.css">
     <title>Cambiar domicilio</title>
+    <link rel="icon" href="../../recursos/logosimple.png">
 </head>
 
 <body>

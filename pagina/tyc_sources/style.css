@@ -87,6 +87,7 @@ footer {
 	font-size: 1.2em;
 }
 
+}
 /*subtitulo*/
 
 
@@ -101,7 +102,7 @@ footer {
 .subtitulo{
 	font-size: 1.5em;
 }
-
+}
 
 /*enunciado*/
 
@@ -117,3 +118,15 @@ footer {
 .enunciado{
 	font-size: 1.3em;
 }
+
+}
+
+.espacio{
+    padding-top: 100px;
+  }
+  
+  @media (max-width:576px){
+    .espacio{
+      padding-top: 125px;
+    }
+  }
