@@ -54,7 +54,7 @@ if ($_SESSION['permisos'] != "admin") {
 
     <div class="w-100 h-100 d-flex justify-content-center align-items-center flex-wrap mt-5 p-2 gap-3 div-admin">
         <a href="agregar_producto/agregar.php" class="btn btn-success">Agregar Producto</a>
-        <a href="#" class="btn btn-secondary">Estados y Cuentas</a>
+        <a href="cuentas_estado/cuentas_estado.php" class="btn btn-secondary">Estados y Cuentas</a>
         <a href="pedidos_admin/pedidos_admin.php" class="btn btn-warning">Pedidos</a>
     </div>
 
