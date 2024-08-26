@@ -266,7 +266,8 @@
 
 
        <section align="left" class="offset-1 col-10 pt-1">
-          <p class="poppins-regular enunciado">Nos reservamos el derecho de actualizar o modificar estos términos y condiciones en cualquier momento. Los cambios entrarán en vigencia una vez publicados en el sitio web.</p>
+          <p class="poppins-regular enunciado">Nos reservamos el derecho de actualizar o modificar estos términos y condiciones en cualquier momento.
+      Los cambios entrarán en vigencia una vez publicados en el sitio web.</p>
       </section>
 
 </div>
