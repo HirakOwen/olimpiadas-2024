@@ -1,4 +1,4 @@
-# Pagina para las olimpiadas-2024
+# Proyecto para las olimpiadas-2024: E-commerce
 ###### Para poder abrir la pagina hay que hacer los siguientes pasos:
 1. Instalar XAMPP
 2. En la carpeta del XAMPP buscamos una carpeta llamada **htdocs**
